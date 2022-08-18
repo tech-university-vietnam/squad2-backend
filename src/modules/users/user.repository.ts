@@ -11,10 +11,13 @@ interface IUserRepository {
 }
 
 export class UserRepository implements IUserRepository {
+  private repo: Repository<UserEntity>;
   constructor(
     @InjectRepository(UserEntity)
-    private readonly repo: Repository<UserEntity>,
-  ) {}
+    repo: Repository<UserEntity>,
+  ) {
+    this.repo = repo;
+  }
 
   createUser(user: UserEntity) {
     console.log('user input', user);
