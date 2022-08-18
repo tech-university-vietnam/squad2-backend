@@ -6,10 +6,10 @@ services:
     image: postgres
     restart: always
     ports:
-      - 5432:5432
+      - "5432:5432"
     environment:
-      POSTGRES_PASSWORD: postgres
       POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: mck2022
 
   api:
     build:
@@ -19,4 +19,4 @@ services:
       - .:/usr/src/app
     command: npm run start
     ports:
-      - 3000:3000
+      - "3000:3000"
