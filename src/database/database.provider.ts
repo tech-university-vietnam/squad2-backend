@@ -15,8 +15,8 @@ export const AppDataSource = new DataSource({
   migrations: [],
 });
 
-AppDataSource.initialize()
-  .then(() => {
-    console.log('init datasource successfully');
-  })
-  .catch((error) => console.log('init datasource failed', error));
+// AppDataSource.initialize()
+//   .then(() => {
+//     console.log('init datasource successfully');
+//   })
+//   .catch((error) => console.log('init datasource failed', error));
