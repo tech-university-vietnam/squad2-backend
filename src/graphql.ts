@@ -9,7 +9,8 @@
 /* eslint-disable */
 
 export class CreateUserInput {
-    exampleField?: Nullable<number>;
+    firstName?: Nullable<string>;
+    lastName?: Nullable<string>;
 }
 
 export class UpdateUserInput {
@@ -18,6 +19,8 @@ export class UpdateUserInput {
 
 export class User {
     id?: Nullable<number>;
+    firstName?: Nullable<string>;
+    lastName?: Nullable<string>;
 }
 
 export abstract class IQuery {

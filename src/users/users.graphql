@@ -2,12 +2,15 @@
 
 type User {
   # Example field (placeholder)
-  id: Int
+  id: Int,
+  firstName: String
+  lastName: String
 }
 
 input CreateUserInput {
   # Example field (placeholder)
-  exampleField: Int
+  firstName: String
+  lastName: String
 }
 
 input UpdateUserInput {
