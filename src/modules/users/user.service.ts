@@ -1,14 +1,10 @@
 import { Injectable } from '@nestjs/common';
 import { UserEntity } from './user.entity';
-import { InjectRepository } from '@nestjs/typeorm';
-import { UserRepository } from './user.repository';
+import { IUserRepository } from './user.repository';
 
 @Injectable()
 export class UserService {
-  constructor(
-    @InjectRepository(UserEntity)
-    private repo: UserRepository,
-  ) {}
+  constructor(private repo: IUserRepository) {}
 
   createUser(user: UserEntity): Promise<UserEntity> {
     return this.repo.createUser(user);

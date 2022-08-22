@@ -1,16 +1,7 @@
 import { DataSource } from 'typeorm';
 import { UserEntity } from '../modules/users/user.entity';
 
-export const databaseProviders = [
-  {
-    provide: 'DATA_SOURCE',
-    useFactory: async () => {
-      return dataSource.initialize();
-    },
-  },
-];
-
-const dataSource = new DataSource({
+export const AppDataSource = new DataSource({
   type: 'postgres',
   host: 'localhost',
   port: 5432,
@@ -23,3 +14,9 @@ const dataSource = new DataSource({
   subscribers: [],
   migrations: [],
 });
+
+AppDataSource.initialize()
+  .then(() => {
+    console.log('init datasource successfully');
+  })
+  .catch((error) => console.log('init datasource failed', error));

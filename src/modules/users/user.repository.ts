@@ -1,8 +1,8 @@
 import { UserEntity } from './user.entity';
-import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
+import { AppDataSource } from '../../database/database.provider';
 
-interface IUserRepository {
+export interface IUserRepository {
   createUser(user: UserEntity);
   getUserById(id: string): Promise<UserEntity>;
   getUsers(): Promise<UserEntity[]>;
@@ -12,11 +12,8 @@ interface IUserRepository {
 
 export class UserRepository implements IUserRepository {
   private repo: Repository<UserEntity>;
-  constructor(
-    @InjectRepository(UserEntity)
-    repo: Repository<UserEntity>,
-  ) {
-    this.repo = repo;
+  constructor() {
+    this.repo = AppDataSource.getRepository(UserEntity);
   }
 
   createUser(user: UserEntity) {
