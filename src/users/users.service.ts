@@ -2,7 +2,7 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreateUserInput } from './dto/create-user.input';
 import { UpdateUserInput } from './dto/update-user.input';
 import { InjectRepository } from '@nestjs/typeorm';
-import { User } from './entities/user.entity';
+import { User, Gender } from './entities/user.entity';
 import { Repository } from 'typeorm';
 
 @Injectable()
@@ -29,11 +29,28 @@ export class UsersService {
     return user;
   }
 
-  update(id: number, updateUserInput: UpdateUserInput) {
-    return `This action updates a #${id} user`;
+  async update(id: number, updateUserInput: UpdateUserInput): Promise<User> {
+    const user = await this.usersRepository.preload({
+      id: id,
+      ...updateUserInput,
+    });
+    if (!user) {
+      throw new NotFoundException(`User #${id} not found`);
+    }
+    return this.usersRepository.save(user);
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} user`;
+  async remove(id: number): Promise<User> {
+    const user = await this.findOne(id);
+    await this.usersRepository.remove(user);
+    return {
+      id: id,
+      firstName: '',
+      lastName: '',
+      email: '',
+      phone: '',
+      gender: Gender.UNDEFINED,
+      userId: '',
+    };
   }
 }
