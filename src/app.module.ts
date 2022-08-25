@@ -5,6 +5,7 @@ import { join } from 'path';
 import { UsersModule } from './users/users.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from './users/entities/user.entity';
+import { HotelsModule } from './hotels/hotels.module';
 
 @Module({
   imports: [
@@ -32,6 +33,7 @@ import { User } from './users/entities/user.entity';
       entities: [User],
     }),
     UsersModule,
+    HotelsModule,
   ],
 })
 export class AppModule {}
