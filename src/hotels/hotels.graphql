@@ -1,15 +1,47 @@
 type Hotel {
   # Example field (placeholder)
-  exampleField: Int
+  id: number;
+  name: string;
+  address: string;
+  images: string[];
+  phone: string;
+  email: string;
+  price: number;
+  facilities: string[];
+  status: HotelStatus;
+  description: string;
+}
+
+enum HotelStatus {
+  INVALID
+  AVAILABLE
+  UNAVAILABLE
 }
 
 input CreateHotelInput {
   # Example field (placeholder)
-  exampleField: Int
+  name: string;
+  address: string;
+  images: string[];
+  phone: string;
+  email: string;
+  price: number;
+  facilities: string[];
+  status: HotelStatus;
+  description: string;
 }
 
 input UpdateHotelInput {
   id: Int!
+  name: string;
+  address: string;
+  images: string[];
+  phone: string;
+  email: string;
+  price: number;
+  facilities: string[];
+  status: HotelStatus;
+  description: string;
 }
 
 type Query {

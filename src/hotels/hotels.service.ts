@@ -1,26 +1,60 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreateHotelInput } from './dto/create-hotel.input';
 import { UpdateHotelInput } from './dto/update-hotel.input';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import { Hotel, HotelStatus } from './entities/hotel.entity';
 
 @Injectable()
 export class HotelsService {
-  create(createHotelInput: CreateHotelInput) {
-    return 'This action adds a new hotel';
+  constructor(
+    @InjectRepository(Hotel)
+    private readonly hotelsRepository: Repository<Hotel>,
+  ) {}
+
+  async create(createHotelInput: CreateHotelInput): Promise<Hotel> {
+    const hotel = this.hotelsRepository.create(createHotelInput);
+    return await this.hotelsRepository.save(hotel);
   }
 
-  findAll() {
-    return `This action returns all hotels`;
+  async findAll(): Promise<Hotel[]> {
+    return this.hotelsRepository.find();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} hotel`;
+  async findOne(id: number): Promise<Hotel> {
+    const hotel = await this.hotelsRepository.findOneBy({ id: id });
+    if (!hotel) {
+      throw new NotFoundException(`Hotel #${id} not found`);
+    }
+    return hotel;
   }
 
-  update(id: number, updateHotelInput: UpdateHotelInput) {
-    return `This action updates a #${id} hotel`;
+  async update(id: number, updateHotelInput: UpdateHotelInput): Promise<Hotel> {
+    const hotel = await this.hotelsRepository.preload({
+      id: id,
+      ...updateHotelInput,
+    });
+    if (!hotel) {
+      throw new NotFoundException(`Hotel #${id} not found`);
+    }
+    return this.hotelsRepository.save(hotel);
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} hotel`;
+  async remove(id: number): Promise<Hotel> {
+    const hotel = await this.findOne(id);
+    await this.hotelsRepository.remove(hotel);
+    return {
+      id: id,
+      name: '',
+      address: '',
+      // reviews: [],
+      images: [],
+      phone: '',
+      email: '',
+      price: 0,
+      facilities: [],
+      status: HotelStatus.INVALID,
+      description: '',
+    };
   }
 }

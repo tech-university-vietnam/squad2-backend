@@ -5,6 +5,13 @@ export enum HotelStatus {
   AVAILABLE = 1,
   UNAVAILABLE = 2,
 }
+// export class Review {
+//   id: number;
+//   point: number;
+//   content: string;
+//   createdAt: Date;
+//   userId: string;
+// }
 
 @Entity()
 export class Hotel {
@@ -17,10 +24,10 @@ export class Hotel {
   @Column()
   address: string;
 
-  @Column()
-  reviews: Review[];
+  // @Column({ array: true })
+  // reviews: Review;
 
-  @Column()
+  @Column('text', { array: true })
   images: string[];
 
   @Column()
@@ -32,7 +39,7 @@ export class Hotel {
   @Column()
   price: number;
 
-  @Column()
+  @Column('text', { array: true })
   facilities: string[];
 
   @Column()
