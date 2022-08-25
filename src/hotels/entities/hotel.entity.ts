@@ -1,9 +1,9 @@
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 export enum HotelStatus {
-  INVALID,
-  AVAILABLE = 1,
-  UNAVAILABLE = 2,
+  INVALID = 'INVALID',
+  AVAILABLE = 'AVAILABLE',
+  UNAVAILABLE = 'UNAVAILABLE',
 }
 // export class Review {
 //   id: number;

@@ -18,9 +18,6 @@ import { Hotel } from './hotels/entities/hotel.entity';
         path: join(process.cwd(), 'src/graphql.ts'),
         outputAs: 'class',
       },
-      subscriptions: {
-        'graphql-ws': true,
-      },
     }),
     TypeOrmModule.forRoot({
       keepConnectionAlive: true,
