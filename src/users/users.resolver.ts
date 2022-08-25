@@ -6,7 +6,6 @@ import { AuthGuard } from '../auth/auth.guard';
 import { UseGuards } from '@nestjs/common';
 
 @Resolver('User')
-@UseGuards(AuthGuard)
 export class UsersResolver {
   constructor(private readonly usersService: UsersService) {}
 
@@ -15,21 +14,25 @@ export class UsersResolver {
     return this.usersService.create(createUserInput);
   }
 
+  @UseGuards(AuthGuard)
   @Query('users')
   findAll() {
     return this.usersService.findAll();
   }
 
+  @UseGuards(AuthGuard)
   @Query('user')
   findOne(@Args('id') id: number) {
     return this.usersService.findOne(id);
   }
 
+  @UseGuards(AuthGuard)
   @Mutation('updateUser')
   update(@Args('updateUserInput') updateUserInput: UpdateUserInput) {
     return this.usersService.update(updateUserInput.id, updateUserInput);
   }
 
+  @UseGuards(AuthGuard)
   @Mutation('removeUser')
   remove(@Args('id') id: number) {
     return this.usersService.remove(id);

@@ -8,4 +8,4 @@ import { User } from '../users/entities/user.entity';
   providers: [AuthService],
   exports: [AuthService],
 })
-export default class AuthModule {}
+export class AuthModule {}

@@ -16,11 +16,11 @@ export default class AuthService {
     const response = await axios
       .get(GOOGLE_VERIFY_TOKEN_API, { params: { access_token: token } })
       .then((response) => {
-        console.log('verify success', response.data);
+        console.log('verify success', response);
         return response.data;
       })
-      .catch((err) => {
-        console.log('verify failed', err);
+      .catch(() => {
+        console.log('verify failed');
         throw new UnauthorizedException();
       });
     if (response) {
