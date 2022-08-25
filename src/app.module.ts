@@ -7,6 +7,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from './users/entities/user.entity';
 import { AuthModule } from './auth/auth.module';
 import { HotelsModule } from './hotels/hotels.module';
+import { Hotel } from './hotels/entities/hotel.entity';
 
 @Module({
   imports: [
@@ -31,9 +32,11 @@ import { HotelsModule } from './hotels/hotels.module';
       database: 'booking_hotel',
       synchronize: true,
       logging: true,
-      entities: [User],
+      entities: [User, Hotel],
     }),
     UsersModule,
+    AuthModule,
+    HotelsModule,
   ],
 })
 export class AppModule {}
