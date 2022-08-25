@@ -8,19 +8,39 @@
 /* tslint:disable */
 /* eslint-disable */
 
+export enum Gender {
+    MALE = "MALE",
+    FEMALE = "FEMALE",
+    UNDEFINED = "UNDEFINED"
+}
+
 export class CreateUserInput {
     firstName?: Nullable<string>;
     lastName?: Nullable<string>;
+    email?: Nullable<string>;
+    phone?: Nullable<string>;
+    gender?: Nullable<Gender>;
+    userId?: Nullable<string>;
 }
 
 export class UpdateUserInput {
     id: number;
+    firstName?: Nullable<string>;
+    lastName?: Nullable<string>;
+    email?: Nullable<string>;
+    phone?: Nullable<string>;
+    gender?: Nullable<Gender>;
+    userId?: Nullable<string>;
 }
 
 export class User {
     id?: Nullable<number>;
     firstName?: Nullable<string>;
     lastName?: Nullable<string>;
+    email?: Nullable<string>;
+    phone?: Nullable<string>;
+    gender?: Nullable<Gender>;
+    userId?: Nullable<string>;
 }
 
 export abstract class IQuery {
