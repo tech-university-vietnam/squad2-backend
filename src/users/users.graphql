@@ -5,16 +5,36 @@ type User {
   id: Int,
   firstName: String
   lastName: String
+  email: String
+  phone: String
+  gender: Gender
+  userId: String
+}
+
+enum Gender {
+  MALE
+  FEMALE
+  UNDEFINED
 }
 
 input CreateUserInput {
   # Example field (placeholder)
   firstName: String
-  lastName: String
+  lastName: String  
+  email: String
+  phone: String
+  gender: Gender
+  userId: String 
 }
 
 input UpdateUserInput {
   id: Int!
+  firstName: String
+  lastName: String
+  email: String
+  phone: String
+  gender: Gender
+  userId: String
 }
 
 type Query {
