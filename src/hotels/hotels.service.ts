@@ -3,16 +3,20 @@ import { CreateHotelInput } from './dto/create-hotel.input';
 import { UpdateHotelInput } from './dto/update-hotel.input';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Hotel, HotelStatus } from './entities/hotel.entity';
-import { Pagination } from 'nestjs-typeorm-paginate';
-import { HotelsRepository } from './hotels.repository';
+import {
+  paginate,
+  IPaginationOptions,
+  Pagination,
+} from 'nestjs-typeorm-paginate';
 import { ListHotelsInput } from './dto/list-hotel.input';
 import { PaginationInput } from '../common/pagination';
+import { Repository } from 'typeorm';
 
 @Injectable()
 export class HotelsService {
   constructor(
     @InjectRepository(Hotel)
-    private readonly hotelsRepository: HotelsRepository,
+    private readonly hotelsRepository: Repository<Hotel>,
   ) {}
 
   async create(createHotelInput: CreateHotelInput): Promise<Hotel> {
@@ -25,13 +29,24 @@ export class HotelsService {
     console.log('paging input', listHotelsInput);
     paging = this.setDefaultPagination(paging);
     console.log('paging output', paging);
-    return this.hotelsRepository.paginate(
+    return this.paginate(
       {
         page: paging.page,
         limit: paging.limit,
       },
       listHotelsInput.orderBy,
     );
+  }
+
+  async paginate(
+    options: IPaginationOptions,
+    orderBy: string,
+  ): Promise<Pagination<Hotel>> {
+    const queryBuilder = this.hotelsRepository.createQueryBuilder('c');
+    if (orderBy.length > 0) {
+      queryBuilder.orderBy(`c.` + orderBy, 'DESC');
+    }
+    return paginate<Hotel>(queryBuilder, options);
   }
 
   setDefaultPagination(paging: PaginationInput): PaginationInput {
