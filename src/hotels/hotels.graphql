@@ -43,9 +43,42 @@ input UpdateHotelInput {
   status: HotelStatus
   description: String
 }
+input PaginationInput{
+  limit: Int
+  page: Int
+}
+
+input ListHotelsInput{
+  paging: PaginationInput
+  orderBy: String
+}
+
+type Meta{
+    itemCount: Int
+    totalItems: Int
+    itemsPerPage: Int
+    totalPages: Int
+    currentPage: Int
+  },
+
+type Links{
+    first: String
+    last: String
+    prev: String
+    next: String
+  },
+
+type PaginationHotels {
+  meta: Meta
+
+  items: [Hotel]
+
+  links: Links
+
+}
 
 type Query {
-  hotels: [Hotel]!
+  hotels(listHotelsInput: ListHotelsInput!): PaginationHotels!
   hotel(id: Int!): Hotel
 }
 

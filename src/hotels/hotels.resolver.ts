@@ -15,6 +15,7 @@ export class HotelsResolver {
 
   @Query('hotels')
   findAll(@Args('listHotelsInput') listHotelsInput: ListHotelsInput) {
+    this.hotelsService.findAll(listHotelsInput).then((res) => console.log(res));
     return this.hotelsService.findAll(listHotelsInput);
   }
 

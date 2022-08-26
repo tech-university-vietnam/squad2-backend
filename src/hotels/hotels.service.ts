@@ -28,14 +28,7 @@ export class HotelsService {
     let paging = listHotelsInput.paging;
     console.log('paging input', listHotelsInput);
     paging = this.setDefaultPagination(paging);
-    console.log('paging output', paging);
-    return this.paginate(
-      {
-        page: paging.page,
-        limit: paging.limit,
-      },
-      listHotelsInput.orderBy,
-    );
+    return await this.paginate(paging, listHotelsInput.orderBy);
   }
 
   async paginate(
