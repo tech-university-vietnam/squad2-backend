@@ -1,0 +1,56 @@
+type Hotel {
+  # Example field (placeholder)
+  id: Int
+  name: String
+  address: String
+  images: [String]
+  phone: String
+  email: String
+  price: Int
+  facilities: [String]
+  status: HotelStatus
+  description: String
+}
+
+enum HotelStatus {
+  INVALID
+  AVAILABLE
+  UNAVAILABLE
+}
+
+input CreateHotelInput {
+  # Example field (placeholder)
+  name: String
+  address: String
+  images: [String]
+  phone: String
+  email: String
+  price: Int
+  facilities: [String]
+  status: HotelStatus
+  description: String
+}
+
+input UpdateHotelInput {
+  id: Int!
+  name: String
+  address: String
+  images: [String]
+  phone: String
+  email: String
+  price: Int
+  facilities: [String]
+  status: HotelStatus
+  description: String
+}
+
+type Query {
+  hotels: [Hotel]!
+  hotel(id: Int!): Hotel
+}
+
+type Mutation {
+  createHotel(createHotelInput: CreateHotelInput!): Hotel!
+  updateHotel(updateHotelInput: UpdateHotelInput!): Hotel!
+  removeHotel(id: Int!): Hotel
+}

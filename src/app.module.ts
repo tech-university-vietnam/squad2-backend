@@ -6,6 +6,12 @@ import { UsersModule } from './users/users.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from './users/entities/user.entity';
 import { AuthModule } from './auth/auth.module';
+import { HotelsModule } from './hotels/hotels.module';
+import { Hotel } from './hotels/entities/hotel.entity';
+import { DummyHotels1661485632654 } from './migrations/1661485632654-DummyHotels';
+
+import * as dotenv from 'dotenv';
+dotenv.config();
 
 @Module({
   imports: [
@@ -16,24 +22,23 @@ import { AuthModule } from './auth/auth.module';
         path: join(process.cwd(), 'src/graphql.ts'),
         outputAs: 'class',
       },
-      subscriptions: {
-        'graphql-ws': true,
-      },
     }),
     TypeOrmModule.forRoot({
       keepConnectionAlive: true,
       type: 'postgres',
-      host: 'localhost',
-      port: 5432,
-      username: 'postgres',
-      password: 'mck2022',
-      database: 'booking_hotel',
+      host: process.env.DB_HOST,
+      port: +process.env.DB_PORT,
+      username: process.env.DB_USERNAME,
+      password: process.env.DB_PASSWORD,
+      database: process.env.DB_DATABASE,
       synchronize: true,
       logging: true,
-      entities: [User],
+      entities: [User, Hotel],
+      migrations: [DummyHotels1661485632654],
     }),
     UsersModule,
     AuthModule,
+    HotelsModule,
   ],
 })
 export class AppModule {}
