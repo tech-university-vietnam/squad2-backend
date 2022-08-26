@@ -45,6 +45,16 @@ export class UpdateHotelInput {
     description?: Nullable<string>;
 }
 
+export class PaginationInput {
+    limit?: Nullable<number>;
+    page?: Nullable<number>;
+}
+
+export class ListHotelsInput {
+    paging?: Nullable<PaginationInput>;
+    orderBy?: Nullable<string>;
+}
+
 export class CreateUserInput {
     firstName?: Nullable<string>;
     lastName?: Nullable<string>;
@@ -77,8 +87,29 @@ export class Hotel {
     description?: Nullable<string>;
 }
 
+export class Meta {
+    itemCount?: Nullable<number>;
+    totalItems?: Nullable<number>;
+    itemsPerPage?: Nullable<number>;
+    totalPages?: Nullable<number>;
+    currentPage?: Nullable<number>;
+}
+
+export class Links {
+    first?: Nullable<string>;
+    last?: Nullable<string>;
+    prev?: Nullable<string>;
+    next?: Nullable<string>;
+}
+
+export class PaginationHotels {
+    meta?: Nullable<Meta>;
+    items?: Nullable<Nullable<Hotel>[]>;
+    links?: Nullable<Links>;
+}
+
 export abstract class IQuery {
-    abstract hotels(): Nullable<Hotel>[] | Promise<Nullable<Hotel>[]>;
+    abstract hotels(listHotelsInput: ListHotelsInput): PaginationHotels | Promise<PaginationHotels>;
 
     abstract hotel(id: number): Nullable<Hotel> | Promise<Nullable<Hotel>>;
 

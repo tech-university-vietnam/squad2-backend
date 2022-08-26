@@ -2,8 +2,15 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreateHotelInput } from './dto/create-hotel.input';
 import { UpdateHotelInput } from './dto/update-hotel.input';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
 import { Hotel, HotelStatus } from './entities/hotel.entity';
+import {
+  paginate,
+  IPaginationOptions,
+  Pagination,
+} from 'nestjs-typeorm-paginate';
+import { ListHotelsInput } from './dto/list-hotel.input';
+import { PaginationInput } from '../common/pagination';
+import { Repository } from 'typeorm';
 
 @Injectable()
 export class HotelsService {
@@ -17,8 +24,31 @@ export class HotelsService {
     return await this.hotelsRepository.save(hotel);
   }
 
-  async findAll(): Promise<Hotel[]> {
-    return this.hotelsRepository.find();
+  async findAll(listHotelsInput: ListHotelsInput): Promise<Pagination<Hotel>> {
+    let paging = listHotelsInput.paging;
+    paging = this.setDefaultPagination(paging);
+    return await this.paginate(paging, listHotelsInput.orderBy);
+  }
+
+  async paginate(
+    options: IPaginationOptions,
+    orderBy: string,
+  ): Promise<Pagination<Hotel>> {
+    const queryBuilder = this.hotelsRepository.createQueryBuilder('c');
+    if (orderBy.length > 0) {
+      queryBuilder.orderBy(`c.` + orderBy, 'ASC');
+    }
+    return paginate<Hotel>(queryBuilder, options);
+  }
+
+  setDefaultPagination(paging: PaginationInput): PaginationInput {
+    if (paging.page <= 0) {
+      paging.page = 1;
+    }
+    if (paging.limit <= 0) {
+      paging.limit = 10;
+    }
+    return paging;
   }
 
   async findOne(id: number): Promise<Hotel> {
