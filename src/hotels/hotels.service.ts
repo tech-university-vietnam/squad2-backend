@@ -26,7 +26,6 @@ export class HotelsService {
 
   async findAll(listHotelsInput: ListHotelsInput): Promise<Pagination<Hotel>> {
     let paging = listHotelsInput.paging;
-    console.log('paging input', listHotelsInput);
     paging = this.setDefaultPagination(paging);
     return await this.paginate(paging, listHotelsInput.orderBy);
   }
