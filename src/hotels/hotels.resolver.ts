@@ -2,6 +2,7 @@ import { Resolver, Query, Mutation, Args } from '@nestjs/graphql';
 import { HotelsService } from './hotels.service';
 import { CreateHotelInput } from './dto/create-hotel.input';
 import { UpdateHotelInput } from './dto/update-hotel.input';
+import { ListHotelsInput } from './dto/list-hotel.input';
 
 @Resolver('Hotel')
 export class HotelsResolver {
@@ -13,8 +14,8 @@ export class HotelsResolver {
   }
 
   @Query('hotels')
-  findAll() {
-    return this.hotelsService.findAll();
+  findAll(@Args('listHotelsInput') listHotelsInput: ListHotelsInput) {
+    return this.hotelsService.findAll(listHotelsInput);
   }
 
   @Query('hotel')
