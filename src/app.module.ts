@@ -8,6 +8,7 @@ import { User } from './users/entities/user.entity';
 import { AuthModule } from './auth/auth.module';
 import { HotelsModule } from './hotels/hotels.module';
 import { Hotel } from './hotels/entities/hotel.entity';
+import { DummyHotels1661485632654 } from './migrations/1661485632654-DummyHotels';
 
 @Module({
   imports: [
@@ -30,6 +31,7 @@ import { Hotel } from './hotels/entities/hotel.entity';
       synchronize: true,
       logging: true,
       entities: [User, Hotel],
+      migrations: [DummyHotels1661485632654],
     }),
     UsersModule,
     AuthModule,
