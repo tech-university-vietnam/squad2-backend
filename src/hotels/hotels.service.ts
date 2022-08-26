@@ -36,7 +36,7 @@ export class HotelsService {
   ): Promise<Pagination<Hotel>> {
     const queryBuilder = this.hotelsRepository.createQueryBuilder('c');
     if (orderBy.length > 0) {
-      queryBuilder.orderBy(`c.` + orderBy, 'DESC');
+      queryBuilder.orderBy(`c.` + orderBy, 'ASC');
     }
     return paginate<Hotel>(queryBuilder, options);
   }
