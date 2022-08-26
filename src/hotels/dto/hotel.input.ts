@@ -1,5 +1,5 @@
 export class HotelInput {
-  id: string;
+  id: number;
   name: string;
   address: string;
   reviews: Review[];
