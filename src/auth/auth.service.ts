@@ -5,6 +5,19 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { User } from '../users/entities/user.entity';
 import { Repository } from 'typeorm';
 
+export const getUserIdFromGoogleToken = async (token: string) => {
+  return await axios
+    .get(GOOGLE_VERIFY_TOKEN_API, { params: { access_token: token } })
+    .then((response) => {
+      // console.log('verify success', response);
+      return response.data;
+    })
+    .catch(() => {
+      // console.log('verify failed');
+      throw new UnauthorizedException();
+    });
+};
+
 @Injectable()
 export default class AuthService {
   constructor(
@@ -13,16 +26,7 @@ export default class AuthService {
   ) {}
 
   async verify(token) {
-    const response = await axios
-      .get(GOOGLE_VERIFY_TOKEN_API, { params: { access_token: token } })
-      .then((response) => {
-        console.log('verify success', response);
-        return response.data;
-      })
-      .catch(() => {
-        console.log('verify failed');
-        throw new UnauthorizedException();
-      });
+    const response = await getUserIdFromGoogleToken(token);
     if (response) {
       const { user_id } = response;
       const user = await this.userRepo.findOneBy({

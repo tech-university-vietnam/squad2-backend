@@ -20,11 +20,11 @@ enum Gender {
 input CreateUserInput {
   # Example field (placeholder)
   firstName: String
-  lastName: String  
+  lastName: String
   email: String
   phone: String
   gender: Gender
-  userId: String 
+  userId: String
 }
 
 input UpdateUserInput {
@@ -40,6 +40,7 @@ input UpdateUserInput {
 type Query {
   users: [User]!
   user(id: Int!): User
+  currentUser: User
 }
 
 type Mutation {

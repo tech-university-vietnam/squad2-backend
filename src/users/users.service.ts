@@ -29,6 +29,14 @@ export class UsersService {
     return user;
   }
 
+  async findByGid(gid: string): Promise<User | undefined> {
+    const user = await this.usersRepository.findOneBy({ userId: gid });
+    if (!user) {
+      throw new NotFoundException(`User #${gid} not found`);
+    }
+    return user;
+  }
+
   async update(id: number, updateUserInput: UpdateUserInput): Promise<User> {
     const user = await this.usersRepository.preload({
       id: id,

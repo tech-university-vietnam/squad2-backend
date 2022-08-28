@@ -11,6 +11,7 @@ import { Hotel } from './hotels/entities/hotel.entity';
 import { DummyHotels1661485632654 } from './migrations/1661485632654-DummyHotels';
 
 import * as dotenv from 'dotenv';
+import { getUserIdFromGoogleToken } from './auth/auth.service';
 dotenv.config();
 
 @Module({
@@ -21,6 +22,13 @@ dotenv.config();
       definitions: {
         path: join(process.cwd(), 'src/graphql.ts'),
         outputAs: 'class',
+      },
+      context: async ({ req }) => {
+        const { user_id } = await getUserIdFromGoogleToken(
+          req?.headers?.authorization,
+        );
+        req.headers.current_gid = user_id;
+        return { req };
       },
     }),
     TypeOrmModule.forRoot({

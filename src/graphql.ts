@@ -116,6 +116,8 @@ export abstract class IQuery {
     abstract users(): Nullable<User>[] | Promise<Nullable<User>[]>;
 
     abstract user(id: number): Nullable<User> | Promise<Nullable<User>>;
+
+    abstract currentUser(): Nullable<User> | Promise<Nullable<User>>;
 }
 
 export abstract class IMutation {
