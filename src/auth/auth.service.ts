@@ -14,7 +14,7 @@ export const getUserIdFromGoogleToken = async (token: string) => {
     })
     .catch(() => {
       // console.log('verify failed');
-      throw new UnauthorizedException();
+      return undefined;
     });
 };
 

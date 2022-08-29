@@ -24,10 +24,12 @@ dotenv.config();
         outputAs: 'class',
       },
       context: async ({ req }) => {
-        const { user_id } = await getUserIdFromGoogleToken(
+        const response = await getUserIdFromGoogleToken(
           req?.headers?.authorization,
         );
-        req.headers.current_gid = user_id;
+        if (response?.user_id) {
+          req.headers.current_gid = response?.user_id;
+        }
         return { req };
       },
     }),
