@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { Booking } from '../../booking/entities/booking.entity';
 
 export enum HotelStatus {
   INVALID = 'INVALID',
@@ -47,4 +48,7 @@ export class Hotel {
 
   @Column()
   description: string;
+
+  @OneToMany(() => Booking, (booking) => booking.hotel)
+  bookings: Booking[];
 }

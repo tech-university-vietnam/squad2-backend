@@ -85,6 +85,7 @@ export class HotelsService {
       facilities: [],
       status: HotelStatus.INVALID,
       description: '',
+      bookings: [],
     };
   }
 }

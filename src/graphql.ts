@@ -20,6 +20,13 @@ export enum Gender {
     UNDEFINED = "UNDEFINED"
 }
 
+export class CreateBookingInput {
+    id?: Nullable<number>;
+    checkIn?: Nullable<number>;
+    checkOut?: Nullable<number>;
+    hotelId?: Nullable<number>;
+}
+
 export class CreateHotelInput {
     name?: Nullable<string>;
     address?: Nullable<string>;
@@ -74,6 +81,46 @@ export class UpdateUserInput {
     userId?: Nullable<string>;
 }
 
+export class Booking {
+    id?: Nullable<number>;
+    checkIn?: Nullable<number>;
+    checkOut?: Nullable<number>;
+    hotel?: Nullable<Hotel>;
+    user?: Nullable<User>;
+    createdAt?: Nullable<number>;
+    totalPrice?: Nullable<number>;
+}
+
+export abstract class IQuery {
+    abstract bookings(): Nullable<Booking>[] | Promise<Nullable<Booking>[]>;
+
+    abstract hotels(listHotelsInput: ListHotelsInput): PaginationHotels | Promise<PaginationHotels>;
+
+    abstract hotel(id: number): Nullable<Hotel> | Promise<Nullable<Hotel>>;
+
+    abstract users(): Nullable<User>[] | Promise<Nullable<User>[]>;
+
+    abstract user(id: number): Nullable<User> | Promise<Nullable<User>>;
+
+    abstract currentUser(): Nullable<User> | Promise<Nullable<User>>;
+}
+
+export abstract class IMutation {
+    abstract createBooking(createBookingInput: CreateBookingInput): Booking | Promise<Booking>;
+
+    abstract createHotel(createHotelInput: CreateHotelInput): Hotel | Promise<Hotel>;
+
+    abstract updateHotel(updateHotelInput: UpdateHotelInput): Hotel | Promise<Hotel>;
+
+    abstract removeHotel(id: number): Nullable<Hotel> | Promise<Nullable<Hotel>>;
+
+    abstract createUser(createUserInput: CreateUserInput): User | Promise<User>;
+
+    abstract updateUser(updateUserInput: UpdateUserInput): User | Promise<User>;
+
+    abstract removeUser(id: number): Nullable<User> | Promise<Nullable<User>>;
+}
+
 export class Hotel {
     id?: Nullable<number>;
     name?: Nullable<string>;
@@ -106,32 +153,6 @@ export class PaginationHotels {
     meta?: Nullable<Meta>;
     items?: Nullable<Nullable<Hotel>[]>;
     links?: Nullable<Links>;
-}
-
-export abstract class IQuery {
-    abstract hotels(listHotelsInput: ListHotelsInput): PaginationHotels | Promise<PaginationHotels>;
-
-    abstract hotel(id: number): Nullable<Hotel> | Promise<Nullable<Hotel>>;
-
-    abstract users(): Nullable<User>[] | Promise<Nullable<User>[]>;
-
-    abstract user(id: number): Nullable<User> | Promise<Nullable<User>>;
-
-    abstract currentUser(): Nullable<User> | Promise<Nullable<User>>;
-}
-
-export abstract class IMutation {
-    abstract createHotel(createHotelInput: CreateHotelInput): Hotel | Promise<Hotel>;
-
-    abstract updateHotel(updateHotelInput: UpdateHotelInput): Hotel | Promise<Hotel>;
-
-    abstract removeHotel(id: number): Nullable<Hotel> | Promise<Nullable<Hotel>>;
-
-    abstract createUser(createUserInput: CreateUserInput): User | Promise<User>;
-
-    abstract updateUser(updateUserInput: UpdateUserInput): User | Promise<User>;
-
-    abstract removeUser(id: number): Nullable<User> | Promise<Nullable<User>>;
 }
 
 export class User {

@@ -12,6 +12,8 @@ import { DummyHotels1661485632654 } from './migrations/1661485632654-DummyHotels
 
 import * as dotenv from 'dotenv';
 import { getUserIdFromGoogleToken } from './auth/auth.service';
+import { BookingModule } from './booking/booking.module';
+import { Booking } from './booking/entities/booking.entity';
 dotenv.config();
 
 @Module({
@@ -43,12 +45,13 @@ dotenv.config();
       database: process.env.DB_DATABASE,
       synchronize: true,
       logging: true,
-      entities: [User, Hotel],
+      entities: [User, Hotel, Booking],
       migrations: [DummyHotels1661485632654],
     }),
     UsersModule,
     AuthModule,
     HotelsModule,
+    BookingModule,
   ],
 })
 export class AppModule {}

@@ -3,8 +3,10 @@ import { HotelsService } from './hotels.service';
 import { HotelsResolver } from './hotels.resolver';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Hotel } from './entities/hotel.entity';
+import { Booking } from '../booking/entities/booking.entity';
+
 @Module({
-  imports: [TypeOrmModule.forFeature([Hotel])],
+  imports: [TypeOrmModule.forFeature([Hotel, Booking])],
   providers: [HotelsResolver, HotelsService],
 })
 export class HotelsModule {}
