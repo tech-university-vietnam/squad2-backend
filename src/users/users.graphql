@@ -1,5 +1,5 @@
 
-
+scalar Date
 type User {
   # Example field (placeholder)
   id: Int,
@@ -9,6 +9,7 @@ type User {
   phone: String
   gender: Gender
   userId: String
+  dob: Date
 }
 
 enum Gender {
@@ -25,6 +26,7 @@ input CreateUserInput {
   phone: String
   gender: Gender
   userId: String
+  dob: Date
 }
 
 input UpdateUserInput {
@@ -35,6 +37,7 @@ input UpdateUserInput {
   phone: String
   gender: Gender
   userId: String
+  dob: Date
 }
 
 type Query {

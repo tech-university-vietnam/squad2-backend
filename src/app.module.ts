@@ -9,6 +9,7 @@ import { AuthModule } from './auth/auth.module';
 import { HotelsModule } from './hotels/hotels.module';
 import { Hotel } from './hotels/entities/hotel.entity';
 import { DummyHotels1661485632654 } from './migrations/1661485632654-DummyHotels';
+import { DateResolver } from 'graphql-scalars';
 
 import * as dotenv from 'dotenv';
 import { getUserIdFromGoogleToken } from './auth/auth.service';
@@ -32,6 +33,7 @@ dotenv.config();
         }
         return { req };
       },
+      resolvers: { Date: DateResolver },
     }),
     TypeOrmModule.forRoot({
       keepConnectionAlive: true,

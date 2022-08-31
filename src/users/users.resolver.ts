@@ -1,16 +1,9 @@
-import {
-  Resolver,
-  Query,
-  Mutation,
-  Args,
-  GqlExecutionContext,
-  Context,
-} from '@nestjs/graphql';
+import { Resolver, Query, Mutation, Args, Context } from '@nestjs/graphql';
 import { UsersService } from './users.service';
 import { CreateUserInput } from './dto/create-user.input';
 import { UpdateUserInput } from './dto/update-user.input';
 import { AuthGuard } from '../auth/auth.guard';
-import { ExecutionContext, Req, UseGuards } from '@nestjs/common';
+import { UseGuards } from '@nestjs/common';
 
 @Resolver('User')
 export class UsersResolver {

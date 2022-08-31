@@ -39,6 +39,7 @@
     "dotenv": "^16.0.1",
     "google-auth-library": "^8.4.0",
     "graphql": "^16.6.0",
+    "graphql-scalars": "^1.18.0",
     "https": "^1.0.0",
     "nestjs-console": "^8.0.0",
     "nestjs-typeorm-paginate": "^4.0.2",

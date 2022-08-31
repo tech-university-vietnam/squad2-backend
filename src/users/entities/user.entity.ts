@@ -38,4 +38,9 @@ export class User {
     nullable: true,
   })
   userId: string;
+  @Column({
+    type: 'date',
+    nullable: true,
+  })
+  dob: Date;
 }
