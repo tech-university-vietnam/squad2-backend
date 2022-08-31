@@ -1,4 +1,8 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import {
+  BadRequestException,
+  Injectable,
+  NotFoundException,
+} from '@nestjs/common';
 import { CreateBookingInput } from './dto/create-booking.input';
 import { UpdateBookingInput } from './dto/update-booking.input';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -19,6 +23,11 @@ export class BookingsService {
   ) {}
 
   async create(createBookingInput: CreateBookingInput): Promise<Booking> {
+    if (createBookingInput.checkIn >= createBookingInput.checkOut) {
+      throw new BadRequestException(
+        `check in time must be before check out time`,
+      );
+    }
     const booking = await this.bookingRepository.create(createBookingInput);
     const user = await this.userRepository.findOneBy({
       id: createBookingInput.userId,
