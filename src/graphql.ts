@@ -174,6 +174,7 @@ export class User {
     phone?: Nullable<string>;
     gender?: Nullable<Gender>;
     userId?: Nullable<string>;
+    bookings?: Nullable<Nullable<Booking>[]>;
 }
 
 type Nullable<T> = T | null;
