@@ -13,6 +13,8 @@ import { DateResolver } from 'graphql-scalars';
 
 import * as dotenv from 'dotenv';
 import { getUserIdFromGoogleToken } from './auth/auth.service';
+import { Booking } from './bookings/entities/booking.entity';
+import { BookingsModule } from './bookings/bookings.module';
 dotenv.config();
 
 @Module({
@@ -45,12 +47,13 @@ dotenv.config();
       database: process.env.DB_DATABASE,
       synchronize: true,
       logging: true,
-      entities: [User, Hotel],
+      entities: [User, Hotel, Booking],
       migrations: [DummyHotels1661485632654],
     }),
     UsersModule,
     AuthModule,
     HotelsModule,
+    BookingsModule,
   ],
 })
 export class AppModule {}

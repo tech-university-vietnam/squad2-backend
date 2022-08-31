@@ -10,6 +10,7 @@ type User {
   gender: Gender
   userId: String
   dob: Date
+  bookings: [Booking]
 }
 
 enum Gender {
