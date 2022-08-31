@@ -14,6 +14,11 @@ export enum HotelStatus {
     UNAVAILABLE = "UNAVAILABLE"
 }
 
+export enum Order {
+    ASC = "ASC",
+    DESC = "DESC"
+}
+
 export enum Gender {
     MALE = "MALE",
     FEMALE = "FEMALE",
@@ -50,9 +55,14 @@ export class PaginationInput {
     page?: Nullable<number>;
 }
 
+export class SortingInput {
+    sortBy?: Nullable<string>;
+    sortOrder?: Nullable<Order>;
+}
+
 export class ListHotelsInput {
     paging?: Nullable<PaginationInput>;
-    orderBy?: Nullable<string>;
+    sorting?: Nullable<SortingInput>;
 }
 
 export class CreateUserInput {

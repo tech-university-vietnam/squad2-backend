@@ -11,6 +11,7 @@ import {
 import { ListHotelsInput } from './dto/list-hotel.input';
 import { PaginationInput } from '../common/pagination';
 import { Repository } from 'typeorm';
+import { SortingInput } from 'src/common/sorting';
 
 @Injectable()
 export class HotelsService {
@@ -26,17 +27,18 @@ export class HotelsService {
 
   async findAll(listHotelsInput: ListHotelsInput): Promise<Pagination<Hotel>> {
     let paging = listHotelsInput.paging;
+    const sorting = listHotelsInput.sorting;
     paging = this.setDefaultPagination(paging);
-    return await this.paginate(paging, listHotelsInput.orderBy);
+    return await this.paginate(paging, sorting);
   }
 
   async paginate(
     options: IPaginationOptions,
-    orderBy: string,
+    sorting: SortingInput,
   ): Promise<Pagination<Hotel>> {
     const queryBuilder = this.hotelsRepository.createQueryBuilder('c');
-    if (orderBy.length > 0) {
-      queryBuilder.orderBy(`c.` + orderBy, 'DESC');
+    if (sorting.sortBy.length > 0) {
+      queryBuilder.orderBy(`c.` + sorting.sortBy, sorting.sortOrder);
     }
     return paginate<Hotel>(queryBuilder, options);
   }

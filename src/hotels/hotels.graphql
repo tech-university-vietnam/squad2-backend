@@ -47,10 +47,19 @@ input PaginationInput{
   limit: Int
   page: Int
 }
+enum Order {
+  ASC
+  DESC
+}
+
+input SortingInput{
+  sortBy: String
+  sortOrder: Order
+}
 
 input ListHotelsInput{
   paging: PaginationInput
-  orderBy: String
+  sorting: SortingInput
 }
 
 type Meta{
