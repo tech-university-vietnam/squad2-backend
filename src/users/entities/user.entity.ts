@@ -1,5 +1,5 @@
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
-import { Booking } from '../../booking/entities/booking.entity';
+import { Booking } from '../../bookings/entities/booking.entity';
 
 export enum Gender {
   MALE = 'MALE',

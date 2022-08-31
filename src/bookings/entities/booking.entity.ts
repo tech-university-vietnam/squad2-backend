@@ -1,4 +1,10 @@
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  ManyToOne,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 import { Hotel } from '../../hotels/entities/hotel.entity';
 import { User } from '../../users/entities/user.entity';
 
@@ -8,16 +14,16 @@ export class Booking {
   id: number;
 
   @Column()
-  checkIn: number;
+  checkIn: Date;
 
   @Column()
-  checkOut: number;
+  checkOut: Date;
 
   @Column()
   totalPrice: number;
 
-  @Column()
-  createdAt: number;
+  @CreateDateColumn()
+  createdAt: Date;
 
   @ManyToOne(() => Hotel, (hotel) => hotel.bookings)
   hotel: Hotel;

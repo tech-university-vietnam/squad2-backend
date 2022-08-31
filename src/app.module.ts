@@ -12,8 +12,8 @@ import { DummyHotels1661485632654 } from './migrations/1661485632654-DummyHotels
 
 import * as dotenv from 'dotenv';
 import { getUserIdFromGoogleToken } from './auth/auth.service';
-import { BookingModule } from './booking/booking.module';
-import { Booking } from './booking/entities/booking.entity';
+import { Booking } from './bookings/entities/booking.entity';
+import { BookingsModule } from './bookings/bookings.module';
 dotenv.config();
 
 @Module({
@@ -51,7 +51,7 @@ dotenv.config();
     UsersModule,
     AuthModule,
     HotelsModule,
-    BookingModule,
+    BookingsModule,
   ],
 })
 export class AppModule {}

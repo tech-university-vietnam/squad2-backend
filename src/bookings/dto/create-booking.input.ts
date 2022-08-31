@@ -1,5 +1,5 @@
 export class CreateBookingInput {
-  checkIn: number;
-  checkOut: number;
+  checkIn: string;
+  checkOut: string;
   hotelId: number;
 }

@@ -27,6 +27,10 @@ export class CreateBookingInput {
     hotelId?: Nullable<number>;
 }
 
+export class UpdateBookingInput {
+    id: number;
+}
+
 export class CreateHotelInput {
     name?: Nullable<string>;
     address?: Nullable<string>;
@@ -94,6 +98,8 @@ export class Booking {
 export abstract class IQuery {
     abstract bookings(): Nullable<Booking>[] | Promise<Nullable<Booking>[]>;
 
+    abstract booking(id: number): Nullable<Booking> | Promise<Nullable<Booking>>;
+
     abstract hotels(listHotelsInput: ListHotelsInput): PaginationHotels | Promise<PaginationHotels>;
 
     abstract hotel(id: number): Nullable<Hotel> | Promise<Nullable<Hotel>>;
@@ -107,6 +113,10 @@ export abstract class IQuery {
 
 export abstract class IMutation {
     abstract createBooking(createBookingInput: CreateBookingInput): Booking | Promise<Booking>;
+
+    abstract updateBooking(updateBookingInput: UpdateBookingInput): Booking | Promise<Booking>;
+
+    abstract removeBooking(id: number): Nullable<Booking> | Promise<Nullable<Booking>>;
 
     abstract createHotel(createHotelInput: CreateHotelInput): Hotel | Promise<Hotel>;
 

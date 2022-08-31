@@ -1,0 +1,31 @@
+type Booking {
+  id: Int
+  checkIn: String
+  checkOut: String
+  hotel: Hotel
+  user: User,
+  createdAt: Int
+  totalPrice: Int
+}
+
+input CreateBookingInput {
+  id: Int
+  checkIn: String
+  checkOut: String
+  hotelId: Int
+}
+
+input UpdateBookingInput {
+  id: Int!
+}
+
+type Query {
+  bookings: [Booking]!
+  booking(id: Int!): Booking
+}
+
+type Mutation {
+  createBooking(createBookingInput: CreateBookingInput!): Booking!
+  updateBooking(updateBookingInput: UpdateBookingInput!): Booking!
+  removeBooking(id: Int!): Booking
+}
