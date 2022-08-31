@@ -3,8 +3,8 @@ type Booking {
   checkIn: String
   checkOut: String
   hotel: Hotel
-  user: User,
-  createdAt: Int
+  user: User
+  createdAt: String
   totalPrice: Int
 }
 
@@ -13,6 +13,7 @@ input CreateBookingInput {
   checkIn: String
   checkOut: String
   hotelId: Int
+  userId: Int
 }
 
 input UpdateBookingInput {

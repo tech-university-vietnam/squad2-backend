@@ -22,9 +22,10 @@ export enum Gender {
 
 export class CreateBookingInput {
     id?: Nullable<number>;
-    checkIn?: Nullable<number>;
-    checkOut?: Nullable<number>;
+    checkIn?: Nullable<string>;
+    checkOut?: Nullable<string>;
     hotelId?: Nullable<number>;
+    userId?: Nullable<number>;
 }
 
 export class UpdateBookingInput {
@@ -87,11 +88,11 @@ export class UpdateUserInput {
 
 export class Booking {
     id?: Nullable<number>;
-    checkIn?: Nullable<number>;
-    checkOut?: Nullable<number>;
+    checkIn?: Nullable<string>;
+    checkOut?: Nullable<string>;
     hotel?: Nullable<Hotel>;
     user?: Nullable<User>;
-    createdAt?: Nullable<number>;
+    createdAt?: Nullable<string>;
     totalPrice?: Nullable<number>;
 }
 
