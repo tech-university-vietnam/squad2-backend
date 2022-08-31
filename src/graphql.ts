@@ -74,6 +74,7 @@ export class CreateUserInput {
     phone?: Nullable<string>;
     gender?: Nullable<Gender>;
     userId?: Nullable<string>;
+    dob?: Nullable<Date>;
 }
 
 export class UpdateUserInput {
@@ -84,6 +85,7 @@ export class UpdateUserInput {
     phone?: Nullable<string>;
     gender?: Nullable<Gender>;
     userId?: Nullable<string>;
+    dob?: Nullable<Date>;
 }
 
 export class Booking {
@@ -174,6 +176,7 @@ export class User {
     phone?: Nullable<string>;
     gender?: Nullable<Gender>;
     userId?: Nullable<string>;
+    dob?: Nullable<Date>;
     bookings?: Nullable<Nullable<Booking>[]>;
 }
 

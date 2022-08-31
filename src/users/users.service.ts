@@ -63,6 +63,7 @@ export class UsersService {
       phone: '',
       gender: Gender.UNDEFINED,
       userId: '',
+      dob: new Date(),
       bookings: [],
     };
   }
