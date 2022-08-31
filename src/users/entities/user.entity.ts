@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { Booking } from '../../bookings/entities/booking.entity';
 
 export enum Gender {
   MALE = 'MALE',
@@ -38,4 +39,7 @@ export class User {
     nullable: true,
   })
   userId: string;
+
+  @OneToMany(() => Booking, (booking) => booking.user)
+  bookings: Booking[];
 }
