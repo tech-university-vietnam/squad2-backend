@@ -58,7 +58,12 @@ export class BookingsService {
   }
 
   async findOne(id: number): Promise<Booking> {
-    const booking = await this.bookingRepository.findOneBy({ id: id });
+    const booking = await this.bookingRepository.findOne({
+      where: {
+        id: id,
+      },
+      relations: ['hotel', 'user'],
+    });
     if (!booking) {
       throw new NotFoundException(`Booking #${id} not found`);
     }
