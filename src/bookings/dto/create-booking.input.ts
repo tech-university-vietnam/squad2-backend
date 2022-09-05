@@ -3,4 +3,5 @@ export class CreateBookingInput {
   checkOut: string;
   hotelId: number;
   userId: number;
+  guests: number;
 }

@@ -22,6 +22,9 @@ export class Booking {
   @Column()
   totalPrice: number;
 
+  @Column({ default: 0 })
+  guests: number;
+
   @CreateDateColumn()
   createdAt: Date;
 

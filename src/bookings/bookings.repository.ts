@@ -24,7 +24,13 @@ export class BookingsRepository implements IBookingsRepository {
   }
 
   async GetByID(id: number): Promise<Booking> {
-    const booking = await this.repo.findOneBy({ id: id });
+    const booking = await this.repo.findOne({
+      where: {
+        id: id,
+      },
+      relations: ['hotel', 'user'],
+    });
+
     if (!booking) {
       throw new NotFoundException(`Booking #${id} not found`);
     }

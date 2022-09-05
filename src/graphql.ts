@@ -26,6 +26,7 @@ export class CreateBookingInput {
     checkOut?: Nullable<string>;
     hotelId?: Nullable<number>;
     userId?: Nullable<number>;
+    guests?: Nullable<number>;
 }
 
 export class UpdateBookingInput {
@@ -96,6 +97,7 @@ export class Booking {
     user?: Nullable<User>;
     createdAt?: Nullable<string>;
     totalPrice?: Nullable<number>;
+    guests: number;
 }
 
 export abstract class IQuery {

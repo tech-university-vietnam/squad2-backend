@@ -6,6 +6,7 @@ type Booking {
   user: User
   createdAt: String
   totalPrice: Int
+  guests: Int!
 }
 
 input CreateBookingInput {
@@ -14,6 +15,7 @@ input CreateBookingInput {
   checkOut: String
   hotelId: Int
   userId: Int
+  guests: Int
 }
 
 input UpdateBookingInput {
