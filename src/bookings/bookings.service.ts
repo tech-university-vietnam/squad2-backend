@@ -10,6 +10,7 @@ import { Repository } from 'typeorm';
 import { Booking } from './entities/booking.entity';
 import { Hotel } from '../hotels/entities/hotel.entity';
 import { User } from '../users/entities/user.entity';
+import { getDifferenceInDays } from '../common/time';
 
 @Injectable()
 export class BookingsService {
@@ -47,9 +48,10 @@ export class BookingsService {
     }
     booking.user = user;
     booking.hotel = hotel;
-    booking.totalPrice = hotel.price;
     booking.checkIn = new Date(createBookingInput.checkIn);
     booking.checkOut = new Date(createBookingInput.checkOut);
+    const days = getDifferenceInDays(booking.checkIn, booking.checkOut);
+    booking.totalPrice = days * hotel.price;
     return await this.bookingRepository.save(booking);
   }
 

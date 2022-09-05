@@ -34,7 +34,10 @@ export class UsersService {
   }
 
   async findByGid(gid: string): Promise<User | undefined> {
-    const user = await this.usersRepository.findOneBy({ userId: gid });
+    const user = await this.usersRepository.findOne({
+      where: { userId: gid },
+      relations: ['bookings'],
+    });
     if (!user) {
       throw new NotFoundException(`User #${gid} not found`);
     }
