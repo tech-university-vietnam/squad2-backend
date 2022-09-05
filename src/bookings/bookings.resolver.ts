@@ -5,7 +5,7 @@ import { UpdateBookingInput } from './dto/update-booking.input';
 import { UseGuards } from '@nestjs/common';
 import { AuthGuard } from '../auth/auth.guard';
 
-@UseGuards(AuthGuard)
+// @UseGuards(AuthGuard)
 @Resolver('Booking')
 export class BookingsResolver {
   constructor(private readonly bookingsService: BookingsService) {}
@@ -31,10 +31,5 @@ export class BookingsResolver {
       updateBookingInput.id,
       updateBookingInput,
     );
-  }
-
-  @Mutation('removeBooking')
-  remove(@Args('id') id: number) {
-    return this.bookingsService.remove(id);
   }
 }

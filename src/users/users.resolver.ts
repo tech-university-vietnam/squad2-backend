@@ -37,10 +37,4 @@ export class UsersResolver {
     const { current_gid } = req.headers;
     return this.usersService.findByGid(current_gid);
   }
-
-  @UseGuards(AuthGuard)
-  @Mutation('removeUser')
-  remove(@Args('id') id: number) {
-    return this.usersService.remove(id);
-  }
 }
