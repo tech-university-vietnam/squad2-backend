@@ -32,9 +32,4 @@ export class BookingsResolver {
       updateBookingInput,
     );
   }
-
-  @Mutation('removeBooking')
-  remove(@Args('id') id: number) {
-    return this.bookingsService.remove(id);
-  }
 }

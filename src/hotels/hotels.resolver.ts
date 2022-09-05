@@ -27,9 +27,4 @@ export class HotelsResolver {
   update(@Args('updateHotelInput') updateHotelInput: UpdateHotelInput) {
     return this.hotelsService.update(updateHotelInput.id, updateHotelInput);
   }
-
-  @Mutation('removeHotel')
-  remove(@Args('id') id: number) {
-    return this.hotelsService.remove(id);
-  }
 }
