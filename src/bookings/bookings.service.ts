@@ -46,6 +46,7 @@ export class BookingsService {
     const booking = new Booking();
     booking.user = user;
     booking.hotel = hotel;
+    booking.guests = createBookingInput.guests;
     booking.checkIn = new Date(createBookingInput.checkIn);
     booking.checkOut = new Date(createBookingInput.checkOut);
     const days = getDifferenceInDays(booking.checkIn, booking.checkOut);
