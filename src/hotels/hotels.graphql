@@ -51,6 +51,8 @@ input PaginationInput{
 input ListHotelsInput{
   paging: PaginationInput
   orderBy: String
+  address: String
+  name: String
 }
 
 type Meta{
@@ -78,7 +80,7 @@ type PaginationHotels {
 }
 
 type Query {
-  hotels(listHotelsInput: ListHotelsInput!): PaginationHotels!
+  hotels(listHotelsInput: ListHotelsInput): PaginationHotels!
   hotel(id: Int!): Hotel
 }
 

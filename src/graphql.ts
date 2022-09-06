@@ -66,6 +66,8 @@ export class PaginationInput {
 export class ListHotelsInput {
     paging?: Nullable<PaginationInput>;
     orderBy?: Nullable<string>;
+    address?: Nullable<string>;
+    name?: Nullable<string>;
 }
 
 export class CreateUserInput {
@@ -105,7 +107,7 @@ export abstract class IQuery {
 
     abstract booking(id: number): Nullable<Booking> | Promise<Nullable<Booking>>;
 
-    abstract hotels(listHotelsInput: ListHotelsInput): PaginationHotels | Promise<PaginationHotels>;
+    abstract hotels(listHotelsInput?: Nullable<ListHotelsInput>): PaginationHotels | Promise<PaginationHotels>;
 
     abstract hotel(id: number): Nullable<Hotel> | Promise<Nullable<Hotel>>;
 

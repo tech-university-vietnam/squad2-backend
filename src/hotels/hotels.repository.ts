@@ -31,18 +31,23 @@ export class HotelsRepository implements IHotelsRepository {
   }
 
   async List(listHotelsInput: ListHotelsInput): Promise<Pagination<Hotel>> {
-    return await this.paginate(listHotelsInput.paging, listHotelsInput.orderBy);
+    return await this.paginate(listHotelsInput);
   }
 
-  async paginate(
-    options: IPaginationOptions,
-    orderBy: string,
-  ): Promise<Pagination<Hotel>> {
+  async paginate(options: ListHotelsInput): Promise<Pagination<Hotel>> {
     const queryBuilder = this.repo.createQueryBuilder('c');
-    if (orderBy.length > 0) {
-      queryBuilder.orderBy(`c.` + orderBy, 'DESC');
+    if (options.orderBy) {
+      queryBuilder.orderBy(`c.` + options.orderBy, 'DESC');
     }
-    return paginate<Hotel>(queryBuilder, options);
+    if (options.address) {
+      const address = options.address;
+      queryBuilder.where(`c.address like '%` + address + `%'`);
+    }
+    if (options.name) {
+      const name = options.name;
+      queryBuilder.where(`c.name like '%` + name + `%'`);
+    }
+    return paginate<Hotel>(queryBuilder, options.paging);
   }
 
   async GetByID(id: number): Promise<Hotel> {
