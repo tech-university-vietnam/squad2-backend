@@ -66,8 +66,7 @@ export class PaginationInput {
 export class ListHotelsInput {
     paging?: Nullable<PaginationInput>;
     orderBy?: Nullable<string>;
-    address?: Nullable<string>;
-    name?: Nullable<string>;
+    filterBy?: Nullable<string>;
 }
 
 export class CreateUserInput {

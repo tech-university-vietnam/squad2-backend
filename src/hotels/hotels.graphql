@@ -51,8 +51,7 @@ input PaginationInput{
 input ListHotelsInput{
   paging: PaginationInput
   orderBy: String
-  address: String
-  name: String
+  filterBy: String
 }
 
 type Meta{

@@ -39,13 +39,20 @@ export class HotelsRepository implements IHotelsRepository {
     if (options.orderBy) {
       queryBuilder.orderBy(`c.` + options.orderBy, 'DESC');
     }
-    if (options.address) {
-      const address = options.address;
-      queryBuilder.where(`c.address like '%` + address + `%'`);
-    }
-    if (options.name) {
-      const name = options.name;
-      queryBuilder.where(`c.name like '%` + name + `%'`);
+    if (options.filterBy) {
+      const upperCond = options.filterBy.toUpperCase();
+      const lowerCond = options.filterBy.toLowerCase();
+      const queryString =
+        `c.address like '%` +
+        upperCond +
+        `%' OR c.name like '%` +
+        upperCond +
+        `%' OR c.address like '%` +
+        lowerCond +
+        `%' OR c.name like '%` +
+        lowerCond +
+        `%'`;
+      queryBuilder.orWhere(queryString);
     }
     return paginate<Hotel>(queryBuilder, options.paging);
   }
