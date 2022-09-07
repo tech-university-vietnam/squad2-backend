@@ -1,7 +1,6 @@
-import { Inject, Injectable, NotFoundException } from "@nestjs/common";
+import { Inject, Injectable, NotFoundException } from '@nestjs/common';
 import { CreateHotelInput } from './dto/create-hotel.input';
 import { UpdateHotelInput } from './dto/update-hotel.input';
-import { InjectRepository } from '@nestjs/typeorm';
 import { Hotel } from './entities/hotel.entity';
 import { Pagination } from 'nestjs-typeorm-paginate';
 import { ListHotelsInput } from './dto/list-hotel.input';

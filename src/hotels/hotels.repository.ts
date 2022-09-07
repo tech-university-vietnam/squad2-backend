@@ -1,15 +1,12 @@
 import { Repository } from 'typeorm';
-import { Hotel, HotelStatus } from './entities/hotel.entity';
+import { Hotel } from './entities/hotel.entity';
 import { CreateHotelInput } from './dto/create-hotel.input';
 import { ListHotelsInput } from './dto/list-hotel.input';
-import {
-  IPaginationOptions,
-  Pagination,
-  paginate,
-} from 'nestjs-typeorm-paginate';
+import { Pagination, paginate } from 'nestjs-typeorm-paginate';
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { UpdateHotelInput } from './dto/update-hotel.input';
 import { InjectRepository } from '@nestjs/typeorm';
+import { Review } from './entities/review.entity';
 
 export interface IHotelsRepository {
   Create(createHotelInput: CreateHotelInput): Promise<Hotel>;
@@ -54,11 +51,15 @@ export class HotelsRepository implements IHotelsRepository {
         `%'`;
       queryBuilder.orWhere(queryString);
     }
+    await queryBuilder.leftJoinAndSelect('c.reviews', 'reviews').getMany();
     return paginate<Hotel>(queryBuilder, options.paging);
   }
 
   async GetByID(id: number): Promise<Hotel> {
-    const hotel = await this.repo.findOneBy({ id: id });
+    const hotel = await this.repo.findOne({
+      where: { id: id },
+      relations: ['reviews'],
+    });
     if (!hotel) {
       throw new NotFoundException(`Hotel #${id} not found`);
     }

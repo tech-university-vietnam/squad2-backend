@@ -1,18 +1,12 @@
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 import { Booking } from '../../bookings/entities/booking.entity';
+import { Review } from './review.entity';
 
 export enum HotelStatus {
   INVALID = 'INVALID',
   AVAILABLE = 'AVAILABLE',
   UNAVAILABLE = 'UNAVAILABLE',
 }
-// export class Review {
-//   id: number;
-//   point: number;
-//   content: string;
-//   createdAt: Date;
-//   userId: string;
-// }
 
 @Entity()
 export class Hotel {
@@ -25,8 +19,8 @@ export class Hotel {
   @Column()
   address: string;
 
-  // @Column({ array: true })
-  // reviews: Review;
+  @OneToMany(() => Review, (review) => review.hotel)
+  reviews: Review[];
 
   @Column('text', { array: true })
   images: string[];

@@ -69,6 +69,13 @@ export class ListHotelsInput {
     filterBy?: Nullable<string>;
 }
 
+export class CreateReviewInput {
+    point: number;
+    content: string;
+    userId: number;
+    hotelId: number;
+}
+
 export class CreateUserInput {
     firstName?: Nullable<string>;
     lastName?: Nullable<string>;
@@ -130,6 +137,8 @@ export abstract class IMutation {
 
     abstract removeHotel(id: number): Nullable<Hotel> | Promise<Nullable<Hotel>>;
 
+    abstract createReview(createReviewInput?: Nullable<CreateReviewInput>): Nullable<Review> | Promise<Nullable<Review>>;
+
     abstract createUser(createUserInput: CreateUserInput): User | Promise<User>;
 
     abstract updateUser(updateUserInput: UpdateUserInput): User | Promise<User>;
@@ -148,6 +157,7 @@ export class Hotel {
     facilities?: Nullable<Nullable<string>[]>;
     status?: Nullable<HotelStatus>;
     description?: Nullable<string>;
+    reviews?: Nullable<Nullable<Review>[]>;
 }
 
 export class Meta {
@@ -169,6 +179,15 @@ export class PaginationHotels {
     meta?: Nullable<Meta>;
     items?: Nullable<Nullable<Hotel>[]>;
     links?: Nullable<Links>;
+}
+
+export class Review {
+    id?: Nullable<string>;
+    point?: Nullable<string>;
+    content?: Nullable<string>;
+    user?: Nullable<User>;
+    hotel?: Nullable<Hotel>;
+    createdAt?: Nullable<string>;
 }
 
 export class User {
