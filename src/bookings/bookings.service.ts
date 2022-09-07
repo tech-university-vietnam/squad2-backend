@@ -50,8 +50,12 @@ export class BookingsService {
     booking.checkIn = new Date(createBookingInput.checkIn);
     booking.checkOut = new Date(createBookingInput.checkOut);
     const days = getDifferenceInDays(booking.checkIn, booking.checkOut);
-    booking.totalPrice = days * hotel.price;
+    booking.totalPrice = this.calcTotalPrice(days, hotel.price, booking.guests);
     return await this.bookingRepository.Create(booking);
+  }
+
+  calcTotalPrice(days: number, price: number, rooms: number) {
+    return days * price * rooms;
   }
 
   async findAll(): Promise<Booking[]> {
