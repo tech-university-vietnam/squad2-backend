@@ -10,11 +10,12 @@ import { HotelsModule } from './hotels/hotels.module';
 import { Hotel } from './hotels/entities/hotel.entity';
 import { DummyHotels1661485632654 } from './migrations/1661485632654-DummyHotels';
 import { DateResolver } from 'graphql-scalars';
-
 import * as dotenv from 'dotenv';
 import { getUserIdFromGoogleToken } from './auth/auth.service';
 import { Booking } from './bookings/entities/booking.entity';
 import { BookingsModule } from './bookings/bookings.module';
+import { Review } from './hotels/entities/review.entity';
+
 dotenv.config();
 
 @Module({
@@ -47,7 +48,7 @@ dotenv.config();
       database: process.env.DB_DATABASE,
       synchronize: true,
       logging: true,
-      entities: [User, Hotel, Booking],
+      entities: [User, Hotel, Booking, Review],
       migrations: [DummyHotels1661485632654],
     }),
     UsersModule,

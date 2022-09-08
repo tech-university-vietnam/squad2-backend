@@ -2,7 +2,6 @@ export class HotelInput {
   id: number;
   name: string;
   address: string;
-  reviews: Review[];
   images: string[];
   phone: string;
   email: string;
@@ -12,12 +11,12 @@ export class HotelInput {
   description: string;
 }
 
-class Review {
+export class ReviewInput {
   id: string;
   point: number;
   content: string;
-  createdAt: Date;
-  userId: string;
+  userId: number;
+  hotelId: number;
 }
 
 enum HotelStatus {
