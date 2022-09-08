@@ -51,14 +51,15 @@ export class HotelsRepository implements IHotelsRepository {
         `%'`;
       queryBuilder.orWhere(queryString);
     }
-    await queryBuilder.leftJoinAndSelect('c.reviews', 'reviews').getMany();
+    queryBuilder.leftJoinAndSelect('c.reviews', 'reviews');
+    queryBuilder.leftJoinAndSelect('reviews.user', 'user');
     return paginate<Hotel>(queryBuilder, options.paging);
   }
 
   async GetByID(id: number): Promise<Hotel> {
     const hotel = await this.repo.findOne({
       where: { id: id },
-      relations: ['reviews'],
+      relations: ['reviews', 'reviews.user'],
     });
     if (!hotel) {
       throw new NotFoundException(`Hotel #${id} not found`);

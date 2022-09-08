@@ -46,6 +46,9 @@ export class User {
   })
   dob: Date;
 
+  @Column({ nullable: true })
+  avatar: string;
+
   @OneToMany(() => Booking, (booking) => booking.user)
   bookings: Booking[];
 

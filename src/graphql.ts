@@ -84,6 +84,7 @@ export class CreateUserInput {
     gender?: Nullable<Gender>;
     userId?: Nullable<string>;
     dob?: Nullable<Date>;
+    avatar?: Nullable<string>;
 }
 
 export class UpdateUserInput {
@@ -95,6 +96,7 @@ export class UpdateUserInput {
     gender?: Nullable<Gender>;
     userId?: Nullable<string>;
     dob?: Nullable<Date>;
+    avatar?: Nullable<string>;
 }
 
 export class Booking {
@@ -200,6 +202,7 @@ export class User {
     userId?: Nullable<string>;
     dob?: Nullable<Date>;
     bookings?: Nullable<Nullable<Booking>[]>;
+    avatar?: Nullable<string>;
 }
 
 type Nullable<T> = T | null;
