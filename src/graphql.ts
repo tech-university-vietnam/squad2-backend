@@ -66,6 +66,14 @@ export class PaginationInput {
 export class ListHotelsInput {
     paging?: Nullable<PaginationInput>;
     orderBy?: Nullable<string>;
+    filterBy?: Nullable<string>;
+}
+
+export class CreateReviewInput {
+    point: number;
+    content: string;
+    userId: number;
+    hotelId: number;
 }
 
 export class CreateUserInput {
@@ -76,6 +84,7 @@ export class CreateUserInput {
     gender?: Nullable<Gender>;
     userId?: Nullable<string>;
     dob?: Nullable<Date>;
+    avatar?: Nullable<string>;
 }
 
 export class UpdateUserInput {
@@ -87,6 +96,7 @@ export class UpdateUserInput {
     gender?: Nullable<Gender>;
     userId?: Nullable<string>;
     dob?: Nullable<Date>;
+    avatar?: Nullable<string>;
 }
 
 export class Booking {
@@ -105,7 +115,7 @@ export abstract class IQuery {
 
     abstract booking(id: number): Nullable<Booking> | Promise<Nullable<Booking>>;
 
-    abstract hotels(listHotelsInput: ListHotelsInput): PaginationHotels | Promise<PaginationHotels>;
+    abstract hotels(listHotelsInput?: Nullable<ListHotelsInput>): PaginationHotels | Promise<PaginationHotels>;
 
     abstract hotel(id: number): Nullable<Hotel> | Promise<Nullable<Hotel>>;
 
@@ -129,6 +139,8 @@ export abstract class IMutation {
 
     abstract removeHotel(id: number): Nullable<Hotel> | Promise<Nullable<Hotel>>;
 
+    abstract createReview(createReviewInput?: Nullable<CreateReviewInput>): Nullable<Review> | Promise<Nullable<Review>>;
+
     abstract createUser(createUserInput: CreateUserInput): User | Promise<User>;
 
     abstract updateUser(updateUserInput: UpdateUserInput): User | Promise<User>;
@@ -147,6 +159,7 @@ export class Hotel {
     facilities?: Nullable<Nullable<string>[]>;
     status?: Nullable<HotelStatus>;
     description?: Nullable<string>;
+    reviews?: Nullable<Nullable<Review>[]>;
 }
 
 export class Meta {
@@ -170,6 +183,15 @@ export class PaginationHotels {
     links?: Nullable<Links>;
 }
 
+export class Review {
+    id?: Nullable<string>;
+    point?: Nullable<string>;
+    content?: Nullable<string>;
+    user?: Nullable<User>;
+    hotel?: Nullable<Hotel>;
+    createdAt?: Nullable<string>;
+}
+
 export class User {
     id?: Nullable<number>;
     firstName?: Nullable<string>;
@@ -180,6 +202,7 @@ export class User {
     userId?: Nullable<string>;
     dob?: Nullable<Date>;
     bookings?: Nullable<Nullable<Booking>[]>;
+    avatar?: Nullable<string>;
 }
 
 type Nullable<T> = T | null;

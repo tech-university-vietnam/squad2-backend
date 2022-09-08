@@ -10,6 +10,7 @@ type Hotel {
   facilities: [String]
   status: HotelStatus
   description: String
+  reviews: [Review]
 }
 
 enum HotelStatus {
@@ -51,6 +52,7 @@ input PaginationInput{
 input ListHotelsInput{
   paging: PaginationInput
   orderBy: String
+  filterBy: String
 }
 
 type Meta{
@@ -77,8 +79,24 @@ type PaginationHotels {
 
 }
 
+input CreateReviewInput {
+  point: Int!
+  content: String!
+  userId: Int!
+  hotelId: Int!
+}
+
+type Review {
+  id: String
+  point: String
+  content: String
+  user: User
+  hotel: Hotel
+  createdAt: String
+}
+
 type Query {
-  hotels(listHotelsInput: ListHotelsInput!): PaginationHotels!
+  hotels(listHotelsInput: ListHotelsInput): PaginationHotels!
   hotel(id: Int!): Hotel
 }
 
@@ -86,4 +104,5 @@ type Mutation {
   createHotel(createHotelInput: CreateHotelInput!): Hotel!
   updateHotel(updateHotelInput: UpdateHotelInput!): Hotel!
   removeHotel(id: Int!): Hotel
+  createReview(createReviewInput: CreateReviewInput): Review
 }
