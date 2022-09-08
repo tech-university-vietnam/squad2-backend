@@ -1,8 +1,5 @@
-import { getRepositoryToken } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
 import { Test, TestingModule } from '@nestjs/testing';
 import { HotelsService } from './hotels.service';
-import { Hotel } from './entities/hotel.entity';
 import { HotelStatus } from './entities/hotel.entity';
 
 const hotelArray = [
@@ -63,11 +60,13 @@ describe('HotelsService', () => {
       const hotels = await service.findAll({
         paging: { page: 1, limit: 10 },
         orderBy: 'ASC',
+        filterBy: 'name',
       });
       expect(hotels).toEqual(hotelArray);
       expect(findAllSpy).toHaveBeenCalledWith({
         paging: { page: 1, limit: 10 },
         orderBy: 'ASC',
+        filterBy: 'name',
       });
     });
   });
