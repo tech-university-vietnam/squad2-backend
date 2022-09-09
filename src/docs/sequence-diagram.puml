@@ -1,0 +1,33 @@
+
+@startuml
+
+    group Auth
+        actor Browser
+        Browser -> Google: login with google
+        Google --> Browser: google profile
+        Browser -> AuthModule: /login
+        AuthModule -> Google: verify google token
+        Google --> AuthModule: 200 OK
+        AuthModule -> UserModule: verify user info
+        UserModule --> AuthModule: 200 OK
+        AuthModule --> Browser: 200 OK
+    end
+
+    group Booking
+
+        participant HotelModule
+        Browser -> BookingModule: create booking
+        BookingModule -> UserModule: check invalid user
+        UserModule --> BookingModule: 200 OK
+        BookingModule -> HotelModule: check invalid hotel
+        HotelModule --> BookingModule: 200 OK
+        BookingModule -> BookingModule: calc total price
+        database Database
+
+        BookingModule -> Database: persist to db
+        Database --> BookingModule: 200 OK
+
+        BookingModule --> Browser: return booking
+    end
+
+@enduml
