@@ -82,6 +82,13 @@
       "json",
       "ts"
     ],
+    "coveragePathIgnorePatterns": [ 
+      ".module.ts",
+      "main.ts",
+      ".mock.ts",
+      "src/migrations",
+      ".repository.ts"
+  ],
     "rootDir": "src",
     "testRegex": ".*\\.spec\\.ts$",
     "transform": {
