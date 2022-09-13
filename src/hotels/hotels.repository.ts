@@ -33,6 +33,8 @@ export class HotelsRepository implements IHotelsRepository {
 
   async paginate(options: ListHotelsInput): Promise<Pagination<Hotel>> {
     const queryBuilder = this.repo.createQueryBuilder('c');
+    queryBuilder.leftJoinAndSelect('c.reviews', 'reviews');
+    queryBuilder.leftJoinAndSelect('reviews.user', 'user');
     if (options.orderBy) {
       queryBuilder.orderBy(`c.` + options.orderBy, 'DESC');
     }
@@ -51,9 +53,9 @@ export class HotelsRepository implements IHotelsRepository {
         `%'`;
       queryBuilder.orWhere(queryString);
     }
-    queryBuilder.leftJoinAndSelect('c.reviews', 'reviews');
-    queryBuilder.leftJoinAndSelect('reviews.user', 'user');
-    return paginate<Hotel>(queryBuilder, options.paging);
+    queryBuilder.limit(options.paging.limit);
+    queryBuilder.offset(options.paging.page);
+    return paginate<Hotel>(queryBuilder, null);
   }
 
   async GetByID(id: number): Promise<Hotel> {

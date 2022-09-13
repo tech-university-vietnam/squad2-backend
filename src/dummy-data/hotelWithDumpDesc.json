@@ -1,0 +1,395 @@
+[
+    {
+      "description": "Vestibulum eget magna at leo pharetra interdum et eu ipsum. Quisque egestas venenatis erat, eu luctus nisl feugiat ut. In sollicitudin diam nisi, a congue est consectetur vel.",
+      "phone": "123546",
+      "email": "hotel@mail.com",
+      "facilities": [
+        "wifi",
+        "pool",
+        "restaurant",
+        "parking",
+        "meeting",
+        "elevator",
+        "fitness",
+        "open"
+      ],
+      "status": "AVAILABLE",
+      "images": [
+        "https://pix8.agoda.net/hotelImages/7395755/-1/471bfd680778e0251aec5139bb587056.jpg",
+        "https://pix8.agoda.net/hotelImages/7395755/-1/6ff0411cb40ab598482293318680a300.jpg",
+        "https://pix8.agoda.net/hotelImages/7395755/-1/13f5e673e9659ea38cf81167e1ac0028.jpg",
+        "https://pix8.agoda.net/hotelImages/739/7395755/7395755_19052111120074627057.jpg",
+        "https://pix8.agoda.net/hotelImages/739/7395755/7395755_19061314330075775320.jpg",
+        "https://pix8.agoda.net/hotelImages/7395755/-1/471bfd680778e0251aec5139bb587056.jpg"
+      ],
+      "name": "IBIZA Riverfront Hotel Da Nang",
+      "price": 15,
+      "address": "Phuoc My, Da Nang - 0.7 km to center"
+    },
+    {
+      "description": "Vestibulum eget magna at leo pharetra interdum et eu ipsum. Quisque egestas venenatis erat, eu luctus nisl feugiat ut. In sollicitudin diam nisi, a congue est consectetur vel.",
+      "phone": "123546",
+      "email": "hotel@mail.com",
+      "facilities": [
+        "wifi",
+        "pool",
+        "restaurant",
+        "parking",
+        "meeting",
+        "elevator",
+        "fitness",
+        "open"
+      ],
+      "status": "AVAILABLE",
+      "images": [
+        "https://pix8.agoda.net/hotelImages/2613181/-1/8ffccdbd9849776b4c455beedca1b8a1.png",
+        "https://pix8.agoda.net/hotelImages/2613181/-1/0e4ea9df46a8bccf014896077aa39319.jpg",
+        "https://pix8.agoda.net/hotelImages/2613181/-1/d1e55d328306db70d4d728512d3238db.jpg",
+        "https://pix8.agoda.net/hotelImages/2613181/-1/01e55e01926ebf304297509215632fb6.jpg",
+        "https://pix8.agoda.net/hotelImages/2613181/-1/9186ee401d0599df1e970fdafdce7fdd.jpg",
+        "https://pix8.agoda.net/hotelImages/2613181/-1/8ffccdbd9849776b4c455beedca1b8a1.png"
+      ],
+      "name": "Monarque Hotel Danang",
+      "price": 38,
+      "address": "Phuoc My, Da Nang - 2.1 km to center"
+    },
+    {
+      "description": "Vestibulum eget magna at leo pharetra interdum et eu ipsum. Quisque egestas venenatis erat, eu luctus nisl feugiat ut. In sollicitudin diam nisi, a congue est consectetur vel.",
+      "phone": "123546",
+      "email": "hotel@mail.com",
+      "facilities": [
+        "wifi",
+        "pool",
+        "restaurant",
+        "parking",
+        "meeting",
+        "elevator",
+        "fitness",
+        "open"
+      ],
+      "status": "AVAILABLE",
+      "images": [
+        "https://pix8.agoda.net/hotelImages/4965532/-1/d49ffcfddd0726707c60d8978cb50b6e.jpg",
+        "https://pix8.agoda.net/hotelImages/4965532/-1/bf297f35dd3a08df168b21d0c4657439.jpg",
+        "https://pix8.agoda.net/hotelImages/4965532/-1/14fb02b70b6025443d683c4bb7867b43.jpg",
+        "https://pix8.agoda.net/hotelImages/4965532/-1/c2133fa2eb6094c75a164e2c67ca9f12.jpg",
+        "https://pix8.agoda.net/hotelImages/4965532/-1/cc1e9b4d8d753f9bc0dc3849891a2fe4.jpg",
+        "https://pix8.agoda.net/hotelImages/4965532/-1/d49ffcfddd0726707c60d8978cb50b6e.jpg"
+      ],
+      "name": "Balcona Hotel Da Nang",
+      "price": 34,
+      "address": "Phuoc My, Da Nang - 2.7 km to center"
+    },
+    {
+      "description": "Vestibulum eget magna at leo pharetra interdum et eu ipsum. Quisque egestas venenatis erat, eu luctus nisl feugiat ut. In sollicitudin diam nisi, a congue est consectetur vel.",
+      "phone": "123546",
+      "email": "hotel@mail.com",
+      "facilities": [
+        "wifi",
+        "pool",
+        "restaurant",
+        "parking",
+        "meeting",
+        "elevator",
+        "fitness",
+        "open"
+      ],
+      "status": "AVAILABLE",
+      "images": [
+        "https://pix8.agoda.net/hotelImages/6359030/-1/e791a87e27dbd8d77d0f64660225a350.jpg",
+        "https://pix8.agoda.net/hotelImages/6359030/-1/40b7406afbfd0cc08c3ab269f6ef31a4.jpg",
+        "https://pix8.agoda.net/hotelImages/635/6359030/6359030_18121709290070419465.jpg",
+        "https://pix8.agoda.net/hotelImages/635/6359030/6359030_18121709210070419350.jpg",
+        "https://pix8.agoda.net/hotelImages/6359030/-1/064c954fe712e828fad285004f459de0.jpg"
+      ],
+      "name": "Muong Thanh Luxury Khanh Hoa",
+      "price": 30,
+      "address": "Xuong Huan, Nha Trang - 1.6 km to center"
+    },
+    {
+      "description": "Vestibulum eget magna at leo pharetra interdum et eu ipsum. Quisque egestas venenatis erat, eu luctus nisl feugiat ut. In sollicitudin diam nisi, a congue est consectetur vel.",
+      "phone": "123546",
+      "email": "hotel@mail.com",
+      "facilities": [
+        "wifi",
+        "pool",
+        "restaurant",
+        "parking",
+        "meeting",
+        "elevator",
+        "fitness",
+        "open"
+      ],
+      "status": "AVAILABLE",
+      "images": [
+        "https://pix8.agoda.net/hotelImages/6508545/-1/3f1e7efb8fcaba330631a2b8b3263900.jpg",
+        "https://pix8.agoda.net/hotelImages/650/6508545/6508545_19012810590071730135.jpg",
+        "https://pix8.agoda.net/hotelImages/6508545/-1/ad62dc0c1bc7a58a44c3921e93839a07.jpg",
+        "https://pix8.agoda.net/hotelImages/650/6508545/6508545_19012515550071693122.jpg",
+        "https://pix8.agoda.net/hotelImages/650/6508545/6508545_19012516320071694451.jpg"
+      ],
+      "name": "Royal HPM Hotel",
+      "price": 10,
+      "address": "Tan Lap, Nha Trang - City center"
+    },
+    {
+      "description": "Vestibulum eget magna at leo pharetra interdum et eu ipsum. Quisque egestas venenatis erat, eu luctus nisl feugiat ut. In sollicitudin diam nisi, a congue est consectetur vel.",
+      "phone": "123546",
+      "email": "hotel@mail.com",
+      "facilities": [
+        "wifi",
+        "pool",
+        "restaurant",
+        "parking",
+        "meeting",
+        "elevator",
+        "fitness",
+        "open"
+      ],
+      "status": "AVAILABLE",
+      "images": [
+        "https://pix8.agoda.net/hotelImages/9807419/-1/5ba68e662ed8835fcfc19ab868f8c307.jpg",
+        "https://pix8.agoda.net/hotelImages/9807419/-1/8b3f72879269f1f9749dfe7139b59484.jpg",
+        "https://pix8.agoda.net/hotelImages/9807419/-1/b81e341891fba6028857da964e6e95cf.jpg",
+        "https://pix8.agoda.net/hotelImages/9807419/-1/ac0606f5c5dcd0ea4fd302d74d1a21e9.jpg",
+        "https://pix8.agoda.net/hotelImages/9807419/-1/ef768a8c4e176a5c105421e24b53ffd5.jpg"
+      ],
+      "name": "Seana Hotel",
+      "price": 14,
+      "address": "Loc Tho, Nha Trang - City center"
+    },
+    {
+      "description": "Vestibulum eget magna at leo pharetra interdum et eu ipsum. Quisque egestas venenatis erat, eu luctus nisl feugiat ut. In sollicitudin diam nisi, a congue est consectetur vel.",
+      "phone": "123546",
+      "email": "hotel@mail.com",
+      "facilities": [
+        "wifi",
+        "pool",
+        "restaurant",
+        "parking",
+        "meeting",
+        "elevator",
+        "fitness",
+        "open"
+      ],
+      "status": "AVAILABLE",
+      "images": [
+        "https://pix8.agoda.net/hotelImages/2430159/-1/147856f2f4b8df2d4dd4a90a1c0841d2.jpg",
+        "https://pix8.agoda.net/hotelImages/2430159/-1/f5562811fdb064e54e086dd1d8aab256.jpg",
+        "https://pix8.agoda.net/hotelImages/2430159/-1/be191d98075d8588b6c220f493e05096.jpg",
+        "https://pix8.agoda.net/hotelImages/2430159/-1/7f0bedb74fb6b2f42dff6dc78ff1b867.jpg",
+        "https://pix8.agoda.net/hotelImages/2430159/-1/20da599959df9095956ac4eb37de49db.jpg"
+      ],
+      "name": "Seashells Phu Quoc Hotel & Spa",
+      "price": 77,
+      "address": "Duong Dong, Phu Quoc Island - View on map"
+    },
+    {
+      "description": "Vestibulum eget magna at leo pharetra interdum et eu ipsum. Quisque egestas venenatis erat, eu luctus nisl feugiat ut. In sollicitudin diam nisi, a congue est consectetur vel.",
+      "phone": "123546",
+      "email": "hotel@mail.com",
+      "facilities": [
+        "wifi",
+        "pool",
+        "restaurant",
+        "parking",
+        "meeting",
+        "elevator",
+        "fitness",
+        "open"
+      ],
+      "status": "AVAILABLE",
+      "images": [
+        "https://pix8.agoda.net/hotelImages/465/4656943/4656943_19031820350073080986.jpg",
+        "https://pix8.agoda.net/hotelImages/4656943/-1/60af6e877da43fbfa27f65a52848d414.jpg",
+        "https://q-xx.bstatic.com/xdata/images/hotel/max500/345185806.jpg",
+        "https://q-xx.bstatic.com/xdata/images/hotel/max500/345189061.jpg",
+        "https://pix8.agoda.net/hotelImages/4656943/-1/d3667c446c4bd429882670e91f3b7e19.jpg"
+      ],
+      "name": "Dendi Resort Phu Quoc",
+      "price": 20,
+      "address": "Duong Dong, Phu Quoc Island - View on map"
+    },
+    {
+      "description": "Vestibulum eget magna at leo pharetra interdum et eu ipsum. Quisque egestas venenatis erat, eu luctus nisl feugiat ut. In sollicitudin diam nisi, a congue est consectetur vel.",
+      "phone": "123546",
+      "email": "hotel@mail.com",
+      "facilities": [
+        "wifi",
+        "pool",
+        "restaurant",
+        "parking",
+        "meeting",
+        "elevator",
+        "fitness",
+        "open"
+      ],
+      "status": "AVAILABLE",
+      "images": [
+        "https://pix8.agoda.net/hotelImages/114/1147156/1147156_17090717560056120258.jpg",
+        "https://pix8.agoda.net/hotelImages/1147156/-1/a5404799a7017b901258c5edc5075a11.jpg",
+        "https://pix8.agoda.net/hotelImages/114/1147156/1147156_16091420000046465114.jpg",
+        "https://pix8.agoda.net/hotelImages/114/1147156/1147156_16051714530042402270.jpg",
+        "https://pix8.agoda.net/hotelImages/114/1147156/1147156_17090717440056119519.jpg"
+      ],
+      "name": "Cosy Bungalow",
+      "price": 20,
+      "address": "Duong Dong, Phu Quoc Island - View on map"
+    },
+    {
+      "description": "Vestibulum eget magna at leo pharetra interdum et eu ipsum. Quisque egestas venenatis erat, eu luctus nisl feugiat ut. In sollicitudin diam nisi, a congue est consectetur vel.",
+      "phone": "123546",
+      "email": "hotel@mail.com",
+      "facilities": [
+        "wifi",
+        "pool",
+        "restaurant",
+        "parking",
+        "meeting",
+        "elevator",
+        "fitness",
+        "open"
+      ],
+      "status": "AVAILABLE",
+      "images": [
+        "https://pix8.agoda.net/hotelImages/7295630/-1/cc29ff8b9c5ab4e1a8009cae17f4e8ec.jpg",
+        "https://pix8.agoda.net/hotelImages/7295630/-1/d2b975b552b942d10bfe955fd32e2787.jpg",
+        "https://pix8.agoda.net/hotelImages/7295630/-1/df0ebc59222e4c75aa3959ae3d613398.jpg",
+        "https://pix8.agoda.net/hotelImages/7295630/-1/f4787636dccdfe671357abb6e8dbb44b.jpg",
+        "https://pix8.agoda.net/hotelImages/7295630/-1/641be09750b7d8e596ae2c5216933ebc.jpg"
+      ],
+      "name": "The Chill Suites- City Center ",
+      "price": 23,
+      "address": "District 1, Ho Chi Minh City - City center"
+    },
+    {
+      "description": "Vestibulum eget magna at leo pharetra interdum et eu ipsum. Quisque egestas venenatis erat, eu luctus nisl feugiat ut. In sollicitudin diam nisi, a congue est consectetur vel.",
+      "phone": "123546",
+      "email": "hotel@mail.com",
+      "facilities": [
+        "wifi",
+        "pool",
+        "restaurant",
+        "parking",
+        "meeting",
+        "elevator",
+        "fitness",
+        "open"
+      ],
+      "status": "AVAILABLE",
+      "images": [
+        "https://pix8.agoda.net/hotelImages/119/1199048/1199048_16071815460044750847.jpg",
+        "https://pix8.agoda.net/hotelImages/1199048/-1/1f641619edfc5a4897ee99e7064d8cc1.jpg",
+        "https://pix8.agoda.net/hotelImages/1199048/-1/148e1c72395385b6556910769c09265a.jpg",
+        "https://pix8.agoda.net/hotelImages/1199048/-1/ca4466f81fd2ddde699f1699074370df.jpg",
+        "https://q-xx.bstatic.com/xdata/images/hotel/max500/120156688.jpg"
+      ],
+      "name": "Sunrise Central Hotel",
+      "price": 29,
+      "address": "District 1, Ho Chi Minh City - City center"
+    },
+    {
+      "description": "Vestibulum eget magna at leo pharetra interdum et eu ipsum. Quisque egestas venenatis erat, eu luctus nisl feugiat ut. In sollicitudin diam nisi, a congue est consectetur vel.",
+      "phone": "123546",
+      "email": "hotel@mail.com",
+      "facilities": [
+        "wifi",
+        "pool",
+        "restaurant",
+        "parking",
+        "meeting",
+        "elevator",
+        "fitness",
+        "open"
+      ],
+      "status": "AVAILABLE",
+      "images": [
+        "https://pix8.agoda.net/hotelImages/10990/-1/6075e85fd1e66c811f3c55af462b4a5c.jpg",
+        "https://pix8.agoda.net/hotelImages/10990/-1/e48d574020e7742b16d74b7b60aaa03e.jpg",
+        "https://pix8.agoda.net/hotelImages/10990/-1/b2e2e7ccdc95108d9ec5222c521f761c.jpg",
+        "https://pix8.agoda.net/hotelImages/10990/-1/fdf7a9fcc591a839ae84ad6a90eb9427.jpg",
+        "https://pix8.agoda.net/hotelImages/10990/-1/a441530027772b1ae030d3599e435b4d.jpg"
+      ],
+      "name": "Riverside Hotel Saigon",
+      "price": 24,
+      "address": "District 1, Ho Chi Minh City - City center"
+    },
+    {
+      "description": "Vestibulum eget magna at leo pharetra interdum et eu ipsum. Quisque egestas venenatis erat, eu luctus nisl feugiat ut. In sollicitudin diam nisi, a congue est consectetur vel.",
+      "phone": "123546",
+      "email": "hotel@mail.com",
+      "facilities": [
+        "wifi",
+        "pool",
+        "restaurant",
+        "parking",
+        "meeting",
+        "elevator",
+        "fitness",
+        "open"
+      ],
+      "status": "AVAILABLE",
+      "images": [
+        "https://pix8.agoda.net/hotelImages/14501735/-1/204f413784297f7d450098ae5d03dcdb.jpg",
+        "https://pix8.agoda.net/hotelImages/14501735/-1/e76962680bcc984f7b0876da6ac5caa8.jpg",
+        "https://pix8.agoda.net/hotelImages/14501735/-1/688dc600b188cd7bb115e2ad4bea1b01.jpg",
+        "https://pix8.agoda.net/hotelImages/145/14501735/14501735_20050715410090260294.jpg",
+        "https://pix8.agoda.net/hotelImages/14501735/-1/59b6cb2a3e6e22888fc45edc925606b5.jpg"
+      ],
+      "name": "HANOI ROYAL PALACE HOTEL 2",
+      "price": 26,
+      "address": "Old Quarter, Hanoi - City center"
+    },
+    {
+      "description": "Vestibulum eget magna at leo pharetra interdum et eu ipsum. Quisque egestas venenatis erat, eu luctus nisl feugiat ut. In sollicitudin diam nisi, a congue est consectetur vel.",
+      "phone": "123546",
+      "email": "hotel@mail.com",
+      "facilities": [
+        "wifi",
+        "pool",
+        "restaurant",
+        "parking",
+        "meeting",
+        "elevator",
+        "fitness",
+        "open"
+      ],
+      "status": "AVAILABLE",
+      "images": [
+        "https://pix8.agoda.net/hotelImages/28529139/-1/fa4e6b959333cc7e1406f937f36cb41b.jpg",
+        "https://pix8.agoda.net/hotelImages/28529139/-1/3eece5c1b949b84a16f1abc79c63ec9d.jpg",
+        "https://pix8.agoda.net/hotelImages/28529139/-1/f52a0e90d2db7ea4258ffeb7035f7367.jpg",
+        "https://q-xx.bstatic.com/xdata/images/hotel/max500/343441541.jpg",
+        "https://pix8.agoda.net/hotelImages/28529139/-1/3090ae64a149891e3b96359e10a0d140.jpg"
+      ],
+      "name": "Fraser Residence Hanoi",
+      "price": 60,
+      "address": "Bac Tu Liem, Hanoi - 6.2 km to center"
+    },
+    {
+      "description": "Vestibulum eget magna at leo pharetra interdum et eu ipsum. Quisque egestas venenatis erat, eu luctus nisl feugiat ut. In sollicitudin diam nisi, a congue est consectetur vel.",
+      "phone": "123546",
+      "email": "hotel@mail.com",
+      "facilities": [
+        "wifi",
+        "pool",
+        "restaurant",
+        "parking",
+        "meeting",
+        "elevator",
+        "fitness",
+        "open"
+      ],
+      "status": "AVAILABLE",
+      "images": [
+        "https://pix8.agoda.net/hotelImages/6162253/535975225/30a884cea79a8a0b900887467732d253.jpg",
+        "https://pix8.agoda.net/hotelImages/6162253/-1/b01ec0d983cbf78c0e2218f4f6525157.jpg",
+        "https://pix8.agoda.net/hotelImages/6162253/-1/0cfd315dd2ccd39632fdd1f82530a7f5.jpg",
+        "https://pix8.agoda.net/hotelImages/6162253/-1/0b4bc6998007737b0e6131e33edd6650.jpg",
+        "https://pix8.agoda.net/hotelImages/6162253/-1/eb2f17ff7eab619e51831539e3a74d62.jpg"
+      ],
+      "name": "May De Ville Legend Hotel & Spa",
+      "price": 36,
+      "address": "Old Quarter, Hanoi - City center"
+    }
+  ]
