@@ -31,7 +31,7 @@ export class UsersService {
 
   async findByGid(gid: string): Promise<User | undefined> {
     const user = await this.usersRepository.GetByGID(gid);
-    if (!user) {
+    if (!user || !gid) {
       throw new NotFoundException(`User #${gid} not found`);
     }
     return user;
