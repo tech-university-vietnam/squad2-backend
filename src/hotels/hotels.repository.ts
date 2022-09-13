@@ -2,11 +2,14 @@ import { Repository } from 'typeorm';
 import { Hotel } from './entities/hotel.entity';
 import { CreateHotelInput } from './dto/create-hotel.input';
 import { ListHotelsInput } from './dto/list-hotel.input';
-import { Pagination, paginate } from 'nestjs-typeorm-paginate';
+import {
+  Pagination,
+  paginate,
+  PaginationTypeEnum,
+} from 'nestjs-typeorm-paginate';
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { UpdateHotelInput } from './dto/update-hotel.input';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Review } from './entities/review.entity';
 
 export interface IHotelsRepository {
   Create(createHotelInput: CreateHotelInput): Promise<Hotel>;
@@ -28,13 +31,11 @@ export class HotelsRepository implements IHotelsRepository {
   }
 
   async List(listHotelsInput: ListHotelsInput): Promise<Pagination<Hotel>> {
-    return await this.paginate(listHotelsInput);
+    return await this.pagination(listHotelsInput);
   }
 
-  async paginate(options: ListHotelsInput): Promise<Pagination<Hotel>> {
+  async pagination(options: ListHotelsInput): Promise<Pagination<Hotel>> {
     const queryBuilder = this.repo.createQueryBuilder('c');
-    queryBuilder.leftJoinAndSelect('c.reviews', 'reviews');
-    queryBuilder.leftJoinAndSelect('reviews.user', 'user');
     if (options.orderBy) {
       queryBuilder.orderBy(`c.` + options.orderBy, 'DESC');
     }
@@ -53,9 +54,24 @@ export class HotelsRepository implements IHotelsRepository {
         `%'`;
       queryBuilder.orWhere(queryString);
     }
-    queryBuilder.limit(options.paging.limit);
-    queryBuilder.offset(options.paging.page);
-    return paginate<Hotel>(queryBuilder, null);
+    queryBuilder.leftJoinAndSelect('c.reviews', 'reviews');
+    queryBuilder.leftJoinAndSelect('reviews.user', 'user');
+    const totalItems = await queryBuilder.getCount();
+    return await paginate<Hotel>(queryBuilder, {
+      limit: options.paging.limit,
+      page: options.paging.page,
+      paginationType: PaginationTypeEnum.TAKE_AND_SKIP,
+      metaTransformer: ({ currentPage, itemCount, itemsPerPage }) => {
+        const totalPages = Math.round(totalItems / itemsPerPage);
+        return {
+          currentPage,
+          itemCount,
+          itemsPerPage,
+          totalItems,
+          totalPages: totalPages === 0 ? 1 : totalPages,
+        };
+      },
+    });
   }
 
   async GetByID(id: number): Promise<Hotel> {
