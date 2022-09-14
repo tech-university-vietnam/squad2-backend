@@ -1,4 +1,3 @@
-import { CreateBookingInput } from './dto/create-booking.input';
 import { Booking } from './entities/booking.entity';
 import { UpdateBookingInput } from './dto/update-booking.input';
 import { Injectable, NotFoundException } from '@nestjs/common';
