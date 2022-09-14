@@ -40,6 +40,7 @@ export class HotelsRepository implements IHotelsRepository {
       queryBuilder.orderBy(`c.` + options.orderBy, 'DESC');
     }
     if (options.filterBy) {
+      const cond = options.filterBy;
       const upperCond = options.filterBy.toUpperCase();
       const lowerCond = options.filterBy.toLowerCase();
       const queryString =
@@ -47,6 +48,10 @@ export class HotelsRepository implements IHotelsRepository {
         upperCond +
         `%' OR c.name like '%` +
         upperCond +
+        `%' OR c.address like '%` +
+        cond +
+        `%' OR c.name like '%` +
+        cond +
         `%' OR c.address like '%` +
         lowerCond +
         `%' OR c.name like '%` +
