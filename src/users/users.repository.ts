@@ -43,7 +43,7 @@ export class UsersRepository implements IUsersRepository {
   async GetByGID(gid: string): Promise<User> {
     const user = await this.repo.findOne({
       where: { userId: gid },
-      relations: ['bookings'],
+      relations: ['bookings', 'bookings.hotel'],
     });
     if (!user) {
       throw new NotFoundException(`User #${gid} not found`);
